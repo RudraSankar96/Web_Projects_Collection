@@ -1,4 +1,14 @@
 /* style.css */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 body {
   margin: 0;
@@ -22,6 +32,8 @@ form {
   width: 90%;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(5px);
+  animation: fadeIn 1s ease-in-out;
+
 }
 
 h1, p {
@@ -56,6 +68,17 @@ textarea {
   border: none;
   border-radius: 5px;
   margin-top: 5px;
+  transition: all 0.3s ease-in-out;
+box-shadow: 0 0 0px rgba(0, 0, 0, 0.1);
+
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 5px #28a745;
+  background-color: #f0fdf4;
+  color: #000;
 }
 
 textarea {
@@ -81,8 +104,11 @@ button {
 }
 
 button:hover {
+  transform: scale(1.02);
   background-color: #218838;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
+
 
 /* Mobile Responsive */
 @media screen and (max-width: 600px) {
