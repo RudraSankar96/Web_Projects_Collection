@@ -1,19 +1,96 @@
+/* style.css */
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-image: url('hotel.jpg'); /* replace with your image name */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url('hotel.jpg'); /* Make sure this file exists in folder */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   min-height: 100vh;
   color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 form {
-  background-color: rgba(0, 0, 0, 0.7); /* semi-transparent form */
-  padding: 20px;
-  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 30px;
+  border-radius: 15px;
   max-width: 600px;
-  margin: 40px auto;
+  width: 90%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+}
+
+h1, p {
+  text-align: center;
   color: #fff;
+}
+
+fieldset {
+  border: none;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+legend {
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+  margin-right: 5px;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 600px) {
+  form {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
 }
