@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('hotel.jpg'); /* replace with your image name */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  color: #fff;
+}
+
+form {
+  background-color: rgba(0, 0, 0, 0.7); /* semi-transparent form */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 40px auto;
+  color: #fff;
+}
