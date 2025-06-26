@@ -5,6 +5,7 @@
     <title>Hotel Feedback Form</title>
      <link rel="stylesheet" href="style.css" />
   </head>
+ 
   <body>
     <header>
       <h1>Hotel Feedback Form</h1>
@@ -14,7 +15,7 @@
       </p>
     </header>
     <main>
-      <form method="POST" action="https://hotel-feedback.freecodecamp.org">
+      <form >
         <fieldset>
           <legend>Personal Information</legend>
           <label for="full-name">Name (required):</label>
@@ -36,9 +37,9 @@
         <fieldset>
           <legend>Was this your first time at our hotel?</legend>
           <label for="yes-option">Yes</label>
-          <input id="yes-option" type="radio" name="hotel-stay" />
+          <input id="yes-option" type="radio" name="hotel-stay" value="Yes" />
           <label for="no-option">No</label>
-          <input id="no-option" type="radio" name="hotel-stay" />
+          <input id="no-option" type="radio" name="hotel-stay" value="No" />
         </fieldset>
 
         <fieldset>
@@ -103,5 +104,30 @@
        <button type="submit">Submit</button> 
       </form>
     </main>
+    <script>
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    const scriptURL = "https://script.google.com/macros/s/AKfycbyjeqw9XuJKioG-xErrP0nXONcJMLP-BM6Brn_cEfom6mSfuLZfW19oopaBwsSWO79N/exec";
+
+    try {
+      const res = await fetch(scriptURL, {
+        method: "POST",
+        body: formData,
+      });
+
+      alert("✅ Thank you! Your feedback has been submitted.");
+      form.reset();
+    } catch (err) {
+      alert("❌ Submission failed: " + err);
+    }
+  });
+</script>
+
+
   </body>
 </html>
