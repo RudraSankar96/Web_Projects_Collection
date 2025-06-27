@@ -1,21 +1,27 @@
-const form = document.querySelector("form");
+document.getElementById("myForm").addEventListener("submit", function(e){
+    e.preventDefault();
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const formData = new FormData(form);
-
-  const scriptURL = "https://script.google.com/macros/s/AKfycbyjeqw9XuJKioG-xErrP0nXONcJMLP-BM6Brn_cEfom6mSfuLZfW19oopaBwsSWO79N/exec";
-
-  try {
-    const res = await fetch(scriptURL, {
-      method: "POST",
-      body: formData,
+    fetch("https://script.google.com/macros/s/AKfycbyl1cu-iKQbT-QgNjL_tvxk3M-rzVB5HpnyFmlyux8eUSXJ0LqDGB3iMSXo57xe6ub_/exec", {
+        method: "POST",
+        body: JSON.stringify({
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            age: document.getElementById("age").value,
+            rating: document.getElementById("rating").value,
+            foodQuality: document.getElementById("foodQuality").value,
+            comments: document.getElementById("comments").value
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert("Thank you for your feedback!");
+        document.getElementById("myForm").reset();
+    })
+    .catch(err => {
+        console.error("Error!", err.message);
+        alert("Something went wrong!");
     });
-
-    alert("✅ Thank you! Your feedback has been submitted.");
-    form.reset();
-  } catch (err) {
-    alert("❌ Submission failed: " + err);
-  }
 });
