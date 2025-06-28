@@ -1,36 +1,37 @@
-// script.js me add karo
+let cart = {};
 
-let sliderImages = [
-  "https://media.istockphoto.com/id/1340754104/photo/closeup-flat-top-macro-of-fresh-raw-chopped-vegetable-salad-with-romaine-lettuce-greens-sweet.jpg?s=612x612&w=0&k=20&c=w260XDt_7HO4j5uMZvDDIr-ov17xMdjeVwpst5Ct_Sg=",
-  "https://media.istockphoto.com/id/1401745103/photo/fried-chicken-wings.jpg?s=612x612&w=0&k=20&c=lhuKzqBPqng3zG_euXFSVcf7uDRguu4jC0OScKw9Rhg=",
-  "https://media.istockphoto.com/id/1365480248/photo/chocolate-muffins.jpg?s=612x612&w=0&k=20&c=O2vVdpsHK83T0skY0uIh6c8Lx3RQEsYSp-VyAlxAEmk="
-];
-
-let currentIndex = 0;
-
-function changeSlider() {
-  const sliderImg = document.getElementById("sliderImage");
-  sliderImg.src = sliderImages[currentIndex];
-  currentIndex = (currentIndex + 1) % sliderImages.length;
+function addToCart(itemName, itemPrice) {
+  if (cart[itemName]) {
+    cart[itemName].quantity++;
+  } else {
+    cart[itemName] = { price: itemPrice, quantity: 1 };
+  }
+  updateCartDisplay();
 }
 
-// change image every 3 sec
-setInterval(changeSlider, 3000);
+function changeQuantity(itemName, change) {
+  if (cart[itemName]) {
+    cart[itemName].quantity += change;
+    if (cart[itemName].quantity <= 0) {
+      delete cart[itemName];
+    }
+    updateCartDisplay();
+  }
+}
 
-function showThankYou(){
-    alert("Thanks for checking our menu");
-
-  const sections = document.querySelectorAll(".menu-section");
-  
-  sections.forEach((section) => {
-    section.style.backgroundColor = "#ffe1b2"; // light orange
-    section.style.transition = "background-color 0.5s ease";
-  });
-  
-  // after 2 seconds wapas normal
-  setTimeout(() => {
-    sections.forEach((section) => {
-      section.style.backgroundColor = "#fbeedc"; // original color
-    });
-  }, 2000);
+function updateCartDisplay() {
+  const cartList = document.getElementById("cartItemsList");
+  cartList.innerHTML = "";
+  let totalItems = 0;
+  for (const item in cart) {
+    const li = document.createElement("li");
+    li.innerHTML = `
+      ${item} - ₹${cart[item].price} x ${cart[item].quantity}
+      <button onclick="changeQuantity('${item}', 1)">+</button>
+      <button onclick="changeQuantity('${item}', -1)">-</button>
+    `;
+    cartList.appendChild(li);
+    totalItems += cart[item].quantity;
+  }
+  document.getElementById("cartCount").textContent = `Cart: ${totalItems} items`;
 }

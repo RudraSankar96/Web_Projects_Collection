@@ -1,5 +1,3 @@
-/* style.css */
-
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -8,23 +6,39 @@ body {
 }
 
 header {
-  background-color: #3a2c27;
+  position: relative;
   color: #fff;
-  padding: 20px;
   text-align: center;
+  padding: 60px 20px;
+  background-image: url('banner.png');
+  background-size: cover;
+  background-position: center;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 2em;
+header::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5); /* dark overlay */
+  z-index: 1;
 }
+
+header h1,
+header p {
+  position: relative;
+  z-index: 2;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
 
 .menu-section {
   padding: 20px;
 }
 
 .section-title {
-  background-color: #ef7d00;
+  background-color: #75f43e;
   color: #fff;
   padding: 10px;
   border-radius: 8px;
@@ -33,44 +47,13 @@ header h1 {
 }
 
 .menu-item {
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.4);
   margin: 10px 0;
   padding: 10px;
-  border-left: 5px solid #3a2c27;
+  border-left: 5px solid #ef7d00;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-/* style.css me add karo slider ke liye */
-
-.slider {
-  display: block;
-  margin: 20px auto;
-  width: 80%;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  transition: transform 0.5s ease;
-}
-
-.slider:hover {
-  transform: scale(1.05);
-}
-
-/* style.css me add karo */
-
-.menu-section img {
-  display: block;
-  margin: 15px auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  max-width: 80%;
-  height: 150;
-}
-
-/* hover effect */
-.menu-section img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
 }
 
 .menu-item h3 {
@@ -83,12 +66,29 @@ header h1 {
   font-weight: bold;
 }
 
+.dish-image {
+  display: block;
+  margin: 10px auto;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #ef7d00;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.dish-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+
 button {
-  background-color: #ef7d00;
+  background-color: #9682fbec;
   color: #fff;
   border: none;
-  padding: 10px 15px;
-  margin: 20px;
+  padding: 8px 12px;
+  margin-top: 10px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1em;
@@ -96,6 +96,27 @@ button {
 
 button:hover {
   background-color: #d46b00;
+}
+
+.cart-section {
+  background-color: #fff8e6;
+  border-top: 3px solid #ef7d00;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.cart-section h2 {
+  margin-top: 0;
+}
+
+.cart-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cart-section li {
+  padding: 5px 0;
+  border-bottom: 1px solid #ddd;
 }
 
 footer {
@@ -111,25 +132,4 @@ footer {
     display: block;
     margin-top: 5px;
   }
-}
-.menu-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.menu-content img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin: 0 10px;
-  padding: 5px;
-  background-color: #ffe6cc; /* highlight background behind image */
-  border: 2px solid #ef7d00;
-  transition: transform 0.4s ease;
-}
-
-.menu-content img:hover {
-  transform: scale(1.1);
 }
