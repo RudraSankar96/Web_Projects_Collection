@@ -40,6 +40,38 @@ header h1 {
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+/* style.css me add karo slider ke liye */
+
+.slider {
+  display: block;
+  margin: 20px auto;
+  width: 80%;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s ease;
+}
+
+.slider:hover {
+  transform: scale(1.05);
+}
+
+/* style.css me add karo */
+
+.menu-section img {
+  display: block;
+  margin: 15px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  max-width: 80%;
+  height: 150;
+}
+
+/* hover effect */
+.menu-section img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
 
 .menu-item h3 {
   margin: 0 0 5px 0;
@@ -79,4 +111,25 @@ footer {
     display: block;
     margin-top: 5px;
   }
+}
+.menu-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-content img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 0 10px;
+  padding: 5px;
+  background-color: #ffe6cc; /* highlight background behind image */
+  border: 2px solid #ef7d00;
+  transition: transform 0.4s ease;
+}
+
+.menu-content img:hover {
+  transform: scale(1.1);
 }
