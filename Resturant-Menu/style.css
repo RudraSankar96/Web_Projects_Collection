@@ -1,13 +1,17 @@
+/* Base styles */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #fbeedc;
-  color: #333;
+  background-image: url('banner.png'); /* tumhara background image */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #fff;
 }
 
+/* Header with overlay */
 header {
   position: relative;
-  color: #fff;
   text-align: center;
   padding: 60px 20px;
   background-image: url('banner.png');
@@ -21,7 +25,7 @@ header::after {
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.5); /* dark overlay */
+  background-color: rgba(0,0,0,0.5);
   z-index: 1;
 }
 
@@ -32,77 +36,111 @@ header p {
   text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
 
-
+/* Menu section with semi-transparent block */
 .menu-section {
+  background-color: rgba(0,0,0,0.5);
+  margin: 20px;
   padding: 20px;
+  border-radius: 10px;
 }
 
+/* Section title styling */
 .section-title {
-  background-color: #75f43e;
+  background-color: rgba(0, 200, 0, 0.8);
   color: #fff;
-  padding: 10px;
+  padding: 10px 20px;
   border-radius: 8px;
-  margin-bottom: 10px;
   display: inline-block;
+  text-shadow: 1px 1px 3px #000;
+  margin-bottom: 15px;
 }
 
+/* Each dish item block */
 .menu-item {
-  background-color: rgba(255, 255, 255, 0.4);
-  margin: 10px 0;
-  padding: 10px;
-  border-left: 5px solid #ef7d00;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(255,255,255,0.15);
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  margin: 15px 0;
+  padding: 15px;
+  flex-wrap: wrap;
 }
 
-.menu-item h3 {
-  margin: 0 0 5px 0;
+/* Dish name + description in a block */
+.menu-item .item-details {
+  flex: 1;
+  min-width: 150px;
 }
 
-.price {
-  float: right;
-  color: #ef7d00;
-  font-weight: bold;
+.menu-item .item-details h3 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
 }
 
-.dish-image {
-  display: block;
-  margin: 10px auto;
-  width: 100px;
-  height: 100px;
+.menu-item .item-details p {
+  margin: 5px 0;
+  color: #ddd;
+  font-size: 0.9em;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+/* Dish image in center */
+.menu-item .item-image {
+  margin: 10px 20px;
+}
+
+.item-image img {
+  width: 200px;
+  height: 120px;
   object-fit: cover;
   border-radius: 10px;
   border: 2px solid #ef7d00;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
 }
 
-.dish-image:hover {
-  transform: scale(1.1);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+.item-image img:hover {
+  transform: scale(1.05);
 }
 
-button {
-  background-color: #9682fbec;
+/* Price and Add button aligned */
+.menu-item .item-actions {
+  text-align: right;
+  min-width: 100px;
+}
+
+.menu-item .price {
+  color: #ef7d00;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+button.add-cart {
+  background-color: #ef7d00;
   color: #fff;
   border: none;
   padding: 8px 12px;
-  margin-top: 10px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1em;
 }
 
-button:hover {
+button.add-cart:hover {
   background-color: #d46b00;
 }
 
+/* Cart section styles */
 .cart-section {
   background-color: #fff8e6;
   border-top: 3px solid #ef7d00;
   padding: 15px;
-  margin-top: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  color: #333;
 }
 
 .cart-section h2 {
@@ -112,6 +150,7 @@ button:hover {
 .cart-section ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .cart-section li {
@@ -119,17 +158,26 @@ button:hover {
   border-bottom: 1px solid #ddd;
 }
 
+/* Footer styles */
 footer {
   background-color: #3a2c27;
   color: #fff;
   text-align: center;
   padding: 15px;
+  margin-top: 20px;
 }
 
+/* Responsive breakpoints */
 @media (max-width: 600px) {
-  .price {
-    float: none;
-    display: block;
-    margin-top: 5px;
+  .menu-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .menu-item .item-actions {
+    text-align: left;
+    margin-top: 10px;
+  }
+  .menu-item .item-image {
+    margin: 10px 0;
   }
 }
