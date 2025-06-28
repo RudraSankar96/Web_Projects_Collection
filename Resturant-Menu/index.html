@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Menu</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fbeedc;
+      color: #333;
+    }
+    header {
+      background-color: #3a2c27;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    .menu-section {
+      padding: 20px;
+    }
+    .section-title {
+      background-color: #ef7d00;
+      color: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+    .menu-item {
+      background-color: #fff;
+      margin: 10px 0;
+      padding: 10px;
+      border-left: 5px solid #3a2c27;
+      border-radius: 5px;
+    }
+    .menu-item h3 {
+      margin: 0 0 5px 0;
+    }
+    .price {
+      float: right;
+      color: #ef7d00;
+      font-weight: bold;
+    }
+    footer {
+      background-color: #3a2c27;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+    }
+    @media (max-width: 600px) {
+      .price {
+        float: none;
+        display: block;
+        margin-top: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Menu Restaurant</h1>
+    <p>Special menu for you</p>
+  </header>
+  <main>
+    <section class="menu-section">
+      <h2 class="section-title">Dishes</h2>
+      <div class="menu-item">
+        <h3>Vegitable Salad <span class="price">120.00rs</span></h3>
+        <p>Delicious vegetables and herbs.</p>
+      </div>
+      <div class="menu-item">
+        <h3>Chicken Wings  <span class="price">200.50rs</span></h3>
+        <p>Spicy chicken wings served with fresh salad.</p>
+      </div>
+    </section>
+    <section class="menu-section">
+      <h2 class="section-title">Drinks</h2>
+      <div class="menu-item">
+        <h3>Coffee <span class="price">80.50rs</span></h3>
+        <p>Hot brewed coffee with a strong aroma.</p>
+      </div>
+      <div class="menu-item">
+        <h3>Fresh Juice <span class="price">50.00rs</span></h3>
+        <p>Orange juice freshly squeezed.</p>
+      </div>
+    </section>
+    <section class="menu-section">
+      <h2 class="section-title">Desserts</h2>
+      <div class="menu-item">
+        <h3>Chocolate Muffin <span class="price">100.00rs</span></h3>
+        <p>Rich chocolate muffin with choco chips.</p>
+      </div>
+      <div class="menu-item">
+        <h3>Ice Cream <span class="price">50.00rs</span></h3>
+        <p>Vanilla ice cream with chocolate syrup.</p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 www.yoursite.com
+  </footer>
+</body>
+</html>
