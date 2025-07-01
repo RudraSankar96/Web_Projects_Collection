@@ -1,22 +1,27 @@
 body {
-  margin: 0;
+  background: url(bg.jpg);
   font-family: Arial, sans-serif;
-  background: #f4f4f4;
   text-align: center;
-  padding: 50px;
+  margin-top: 50px;
 }
 
 .container {
-  background: #fff;
+  background: url(gradient-painted-texture-illustration.jpg);
+  max-width: 400px;
   padding: 30px;
   border-radius: 8px;
   display: inline-block;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
-img {
+.profile-photo {
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
-  margin: 20px 0;
+  object-fit: cover;
+  margin: 20px auto;
+  display: block;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
 .links a {
