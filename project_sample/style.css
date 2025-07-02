@@ -42,3 +42,38 @@ section {
 .dj-card img {
   max-width: 100%;
 }
+.form-container {
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.form-container input {
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: none;
+  width: 200px;
+}
+
+.form-container button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.form-container button:hover {
+  background-color: #2980b9;
+}
+
+#toggle-text a {
+  color: yellow;
+  cursor: pointer;
+}
