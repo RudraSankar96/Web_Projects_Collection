@@ -1,10 +1,16 @@
 body {
   font-family: Arial, sans-serif;
+  background: url(dj.jpg);
+  background-size: cover;
+  margin: 0;
   padding: 20px;
+  text-align: center; /* centers all inline content */
+  color: white; /* to make text visible on image */
 }
 
 nav ul {
   display: flex;
+  justify-content: center; /* centers nav items */
   gap: 15px;
   list-style: none;
   padding: 0;
@@ -12,9 +18,27 @@ nav ul {
 
 nav ul li a {
   text-decoration: none;
-  color: blue;
+  color: white;
 }
 
 section {
   margin-top: 20px;
+  background: rgba(0,0,0,0.5); /* semi-transparent background for readability */
+  padding: 15px;
+  border-radius: 10px;
+  display: inline-block; /* so it respects text-align center */
+  text-align: center;
+}
+
+.dj-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-top: 20px;
+  background: rgba(0,0,0,0.5);
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.dj-card img {
+  max-width: 100%;
 }

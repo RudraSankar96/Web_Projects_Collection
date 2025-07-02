@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Website - Home</title>
+  <title>Odisha DJ Vehicles - Home</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,41 +15,56 @@
       <li><a href="#menu">Menu</a></li>
     </ul>
   </nav>
-  
+
   <section id="home">
-    <h1>Welcome to Our Website</h1>
+    <h1>Welcome to Odisha DJ Vehicles</h1>
+    <p>Find all DJ vehicle photos, videos, and contact numbers here.</p>
   </section>
-  
+
   <section id="about">
     <h2>About Us</h2>
-    <p>We are awesome people building awesome things!</p>
+    <p>We provide details of popular DJ vehicles across Odisha, with verified contact details and videos.</p>
   </section>
-  
+
   <section id="contact">
     <h2>Contact Info</h2>
-    <p>Email: info@example.com</p>
-    <p>Phone: 123-456-7890</p>
+    <p>Email: info@odishadjvehicles.com</p>
+    <p>Phone: +91 12345 67890</p>
   </section>
-  
+
   <section id="menu">
-    <h2>Menu</h2>
+    <h2><u> Menu</u></h2>
     <ul>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <li>DJ Listings</li>
+      <li>Photo Gallery</li>
+      <li>Videos</li>
+      <li>Bookings</li>
     </ul>
   </section>
-  
-  <section id="login">
-    <h2>Login / Register</h2>
-    <form onsubmit="return login()">
+<hr>
+  <section id="dj-directory">
+    <h2><u>Popular DJs in Odisha</u></h2>
+    <ul>
+      <li>DJ Ranjit Tiger</li>
+      <li>DJ Basu Bhai</li>
+      <li>DJ JB Professional</li>
+    </ul>
+    <p>Login to see their photos, phone numbers, and videos.</p>
+  </section>
+
+  <section id="login-register">
+  <div class="form-container">
+    <h2 id="form-title">Login</h2>
+    <form id="user-form" onsubmit="return handleForm()">
       <input type="text" id="username" placeholder="Username" required><br>
       <input type="password" id="password" placeholder="Password" required><br>
       <button type="submit">Login</button>
     </form>
-  </section>
+    <p id="toggle-text">New user? <a href="#" onclick="toggleForm()">Register here</a></p>
+  </div>
+</section>
+
 
   <script src="script.js"></script>
 </body>
 </html>
-
