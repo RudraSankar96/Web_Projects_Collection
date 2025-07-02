@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Website - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact">Contact Info</a></li>
+      <li><a href="#menu">Menu</a></li>
+    </ul>
+  </nav>
+  
+  <section id="home">
+    <h1>Welcome to Our Website</h1>
+  </section>
+  
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We are awesome people building awesome things!</p>
+  </section>
+  
+  <section id="contact">
+    <h2>Contact Info</h2>
+    <p>Email: info@example.com</p>
+    <p>Phone: 123-456-7890</p>
+  </section>
+  
+  <section id="menu">
+    <h2>Menu</h2>
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+  </section>
+  
+  <section id="login">
+    <h2>Login / Register</h2>
+    <form onsubmit="return login()">
+      <input type="text" id="username" placeholder="Username" required><br>
+      <input type="password" id="password" placeholder="Password" required><br>
+      <button type="submit">Login</button>
+    </form>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
