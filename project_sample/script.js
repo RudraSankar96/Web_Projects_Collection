@@ -1,17 +1,17 @@
 let isLogin = true;
 
 function toggleForm() {
-  const formTitle = document.getElementById("form-title");
-  const button = document.querySelector("#user-form button");
+  const title = document.getElementById("form-title");
+  const button = document.querySelector(".form-container button");
   const toggleText = document.getElementById("toggle-text");
 
   if (isLogin) {
-    formTitle.textContent = "Register";
+    title.textContent = "Register";
     button.textContent = "Register";
     toggleText.innerHTML = `Already have an account? <a href="#" onclick="toggleForm()">Login here</a>`;
     isLogin = false;
   } else {
-    formTitle.textContent = "Login";
+    title.textContent = "Login";
     button.textContent = "Login";
     toggleText.innerHTML = `New user? <a href="#" onclick="toggleForm()">Register here</a>`;
     isLogin = true;
@@ -23,15 +23,14 @@ function handleForm() {
   const pass = document.getElementById("password").value;
 
   if (isLogin) {
-    // Dummy login
     if (user === "admin" && pass === "admin") {
       window.location.href = "dashboard.html";
     } else {
-      alert("Invalid credentials (try admin/admin)");
+      alert("Invalid credentials. Try admin/admin");
     }
   } else {
     alert(`Registered successfully for user: ${user}`);
-    toggleForm(); // switch to login after register
+    toggleForm();
   }
   return false;
 }

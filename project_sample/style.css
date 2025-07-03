@@ -1,79 +1,81 @@
 body {
   font-family: Arial, sans-serif;
-  background: url(dj.jpg);
+  background: url("dj.jpg") no-repeat center center fixed;
   background-size: cover;
   margin: 0;
-  padding: 20px;
-  text-align: center; /* centers all inline content */
-  color: white; /* to make text visible on image */
+  color: white;
+  text-align: center;
 }
 
 nav ul {
   display: flex;
-  justify-content: center; /* centers nav items */
-  gap: 15px;
+  justify-content: center;
+  gap: 20px;
   list-style: none;
-  padding: 0;
+  padding: 10px;
+  background: rgba(0,0,0,0.6);
 }
 
 nav ul li a {
-  text-decoration: none;
   color: white;
+  text-decoration: none;
 }
 
 section {
-  margin-top: 20px;
-  background: rgba(0,0,0,0.5); /* semi-transparent background for readability */
+  margin: 20px auto;
+  background: rgba(0,0,0,0.6);
   padding: 15px;
-  border-radius: 10px;
-  display: inline-block; /* so it respects text-align center */
-  text-align: center;
+  border-radius: 8px;
+  max-width: 600px;
 }
 
-.dj-card {
-  border: 1px solid #ccc;
-  padding: 15px;
-  margin-top: 20px;
-  background: rgba(0,0,0,0.5);
-  display: inline-block;
-  border-radius: 10px;
-}
-
-.dj-card img {
-  max-width: 100%;
-}
 .form-container {
   background: rgba(255,255,255,0.1);
   padding: 20px;
-  border-radius: 12px;
-  display: inline-block;
-  margin-top: 20px;
+  border-radius: 10px;
 }
 
-.form-container input {
-  padding: 10px;
+.form-container input,
+.form-container button {
   margin: 8px 0;
-  border-radius: 8px;
+  padding: 10px;
+  border-radius: 5px;
   border: none;
-  width: 200px;
 }
 
 .form-container button {
-  background-color: #3498db;
+  background: #3498db;
   color: white;
-  border: none;
-  padding: 10px 20px;
-  margin-top: 10px;
-  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease;
 }
 
 .form-container button:hover {
-  background-color: #2980b9;
+  background: #2980b9;
 }
 
-#toggle-text a {
+.dj-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 20px;
+}
+
+.dj-card {
+  background: rgba(0,0,0,0.6);
+  border-radius: 8px;
+  padding: 10px;
+  width: 320px;
+  text-align: center;
+}
+
+
+.highlight {
   color: yellow;
-  cursor: pointer;
+}
+.dj-card img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
 }
