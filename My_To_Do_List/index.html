@@ -1,35 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My To-Do List</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My To-Do List</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>My To-Do List</h1>
-    <ul>
-        <li>
-           <input type="checkbox" id="task1" >
-           <label for="task1">Reading Javascript</label>
-               <div><a  class="sub-item-link" href=" https://www.freecodecamp.org/learn/full-stack-developer/lab-stylized-to-do-list/build-a-stylized-to-do-list#" target="_blank">Store Link</a></div>
-        </li>
-        <li>
-            <input type="checkbox" id="task2">
-            <label for="task2">Coding Javascript</label>
-           <div><a  class="sub-item-link" href=" https://www.freecodecamp.org/learn/full-stack-developer/lab-stylized-to-do-list/build-a-stylized-to-do-list#" target="_blank">VS Code</a></div>
-            </li>
-        <li>
-            <input type="checkbox" id="task3">
-            <label for="task3">Reading Html</label>
-            <div><a  class="sub-item-link" href=" https://www.freecodecamp.org/learn/full-stack-developer/lab-stylized-to-do-list/build-a-stylized-to-do-list#" target="_blank">freecodecamp</a></div>
-                    
-        </li>
-        <li>
-            <input type="checkbox" id="task4">
-            <label for="task4">Reading CSS</label>
-             <div><a  class="sub-item-link" href=" https://www.freecodecamp.org/learn/full-stack-developer/lab-stylized-to-do-list/build-a-stylized-to-do-list#" target="_blank">W3School</a></div>
-        </li>
-    </ul>
+  <h1>My To-Do List</h1>
+  <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+  <ul>
+    <li>
+      <input type="checkbox" id="task1">
+      <label for="task1">Reading Javascript</label>
+      <div>
+        <a class="sub-item-link" href="https://example.com" target="_blank">Store Link</a>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" id="task2">
+      <label for="task2">Coding Javascript</label>
+      <div>
+        <a class="sub-item-link" href="https://example.com" target="_blank">VS Code</a>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" id="task3">
+      <label for="task3">Reading HTML</label>
+      <div>
+        <a class="sub-item-link" href="https://example.com" target="_blank">freeCodeCamp</a>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" id="task4">
+      <label for="task4">Reading CSS</label>
+      <div>
+        <a class="sub-item-link" href="https://example.com" target="_blank">W3Schools</a>
+      </div>
+    </li>
+  </ul>
+
+  <script src="script.js"></script>
 </body>
 </html>
