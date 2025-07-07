@@ -1,37 +1,68 @@
+:root {
+  --bg-light: aquamarine;
+  --bg-dark: #1e1e1e;
+  --card-light: #fff;
+  --card-dark: #2c2c2c;
+  --text-light: #000;
+  --text-dark: #f5f5f5;
+}
+
 body {
-  background-color: aquamarine;
+  background-color: var(--bg-light);
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0;
+  padding: 20px;
+  transition: background 0.3s ease;
+}
+
+body.dark-mode {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
 }
 
 h1 {
   text-align: center;
-  color: black;
   text-decoration: underline;
+}
+
+.toggle-btn {
+  margin: 10px;
+  padding: 10px 15px;
+  background: #444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  width: 100%;
+  max-width: 400px;
 }
 
 li {
-  background-color: white;
-  margin: 20px 0;
+  background-color: var(--card-light);
+  margin: 15px 0;
   padding: 20px;
-  width: 350px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
   text-align: left;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.dark-mode li {
+  background-color: var(--card-dark);
+  color: var(--text-dark);
 }
 
 li:hover {
   transform: scale(1.02);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 input[type="checkbox"] {
@@ -41,23 +72,24 @@ input[type="checkbox"] {
 label {
   font-weight: bold;
   font-size: 1.1em;
+  cursor: pointer;
 }
 
-.sub-item {
-  margin-top: 10px;
-  padding-left: 0;
+input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+  color: gray;
 }
 
 .sub-item-link {
   display: inline-block;
-  padding: 8px 12px;
   margin-top: 10px;
+  padding: 8px 12px;
   background-color: #f1f1f1;
   border-radius: 8px;
   text-decoration: none;
   color: blue;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
 .sub-item-link:hover {
@@ -75,4 +107,16 @@ label {
 
 .sub-item-link:active {
   color: red;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  li {
+    padding: 15px;
+    font-size: 1em;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
 }
