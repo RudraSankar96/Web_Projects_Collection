@@ -1,29 +1,63 @@
-h1{
-    text-align: center;
-    color: rgb(0, 0, 0);
-    text-decoration: underline;
+/* Center everything inside the body */
+body {
+  background-color: aquamarine;
+  text-align: center;
+  font-family: Arial, sans-serif;
 }
-body{
-    
-    background-color: aquamarine;
-}
-a{
-    text-decoration: none;
-    color: blue;
 
+/* Center h1 and underline */
+h1 {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  text-decoration: underline;
 }
+
+/* Style for the to-do list */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Style each main task */
+li {
+  background-color: white;
+  margin: 15px auto;
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px gray;
+  text-align: left;
+}
+
+/* Checkbox and label spacing */
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+/* Sub-item list (link area) */
+.sub-item {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+/* Anchor styling */
+a {
+  text-decoration: none;
+  color: blue;
+}
+
 a:visited {
-  color: purple;                 /* After the link is visited */
+  color: purple;
 }
 
 a:hover {
-  color: green;                  /* On hover */
+  color: green;
 }
 
 a:focus {
-  outline: 2px solid orange;     /* When focused (e.g. via keyboard) */
+  outline: 2px solid orange;
 }
 
 a:active {
-  color: red;                    /* While being clicked */
+  color: red;
 }
