@@ -1,0 +1,29 @@
+h1{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    text-decoration: underline;
+}
+body{
+    
+    background-color: aquamarine;
+}
+a{
+    text-decoration: none;
+    color: blue;
+
+}
+a:visited {
+  color: purple;                 /* After the link is visited */
+}
+
+a:hover {
+  color: green;                  /* On hover */
+}
+
+a:focus {
+  outline: 2px solid orange;     /* When focused (e.g. via keyboard) */
+}
+
+a:active {
+  color: red;                    /* While being clicked */
+}
