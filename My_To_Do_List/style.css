@@ -1,63 +1,78 @@
-/* Center everything inside the body */
 body {
   background-color: aquamarine;
-  text-align: center;
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Center h1 and underline */
 h1 {
   text-align: center;
-  color: rgb(0, 0, 0);
+  color: black;
   text-decoration: underline;
 }
 
-/* Style for the to-do list */
 ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-/* Style each main task */
 li {
   background-color: white;
-  margin: 15px auto;
+  margin: 20px 0;
   padding: 20px;
-  width: 300px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px gray;
+  width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Checkbox and label spacing */
+li:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
 input[type="checkbox"] {
   margin-right: 10px;
 }
 
-/* Sub-item list (link area) */
+label {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
 .sub-item {
   margin-top: 10px;
-  padding-left: 20px;
+  padding-left: 0;
 }
 
-/* Anchor styling */
-a {
+.sub-item-link {
+  display: inline-block;
+  padding: 8px 12px;
+  margin-top: 10px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
   text-decoration: none;
   color: blue;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
-a:visited {
-  color: purple;
-}
-
-a:hover {
+.sub-item-link:hover {
+  background-color: #dff9fb;
   color: green;
 }
 
-a:focus {
+.sub-item-link:visited {
+  color: purple;
+}
+
+.sub-item-link:focus {
   outline: 2px solid orange;
 }
 
-a:active {
+.sub-item-link:active {
   color: red;
 }
