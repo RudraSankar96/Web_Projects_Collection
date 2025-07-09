@@ -1,0 +1,53 @@
+/* Targets .blog-post-card */
+.blog-post-card {
+  background-color: white;         /* ✅ Requirement #9 */
+  border-radius: 10px;             /* ✅ #8 */
+  width: 320px; 
+                     /* ✅ #10 */
+  text-align: center;              /* ✅ #11 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* optional */
+  overflow: hidden;                /* optional but neat */
+}
+
+/* Targets .post-img */
+.post-img {
+  width: 100%; 
+                /* ✅ #20 */
+  display: block;
+  border-bottom: 2px solid #ccc;   /* ✅ #21 */
+}
+
+/* Targets .post-content */
+.post-content {
+  padding: 16px;                   /* ✅ #12 */
+}
+
+/* Targets .post-title */
+.post-title {
+  margin: 12px;                    /* ✅ #22 */
+  color: #2c3e50;                  /* ✅ #22 */
+}
+
+/* Targets .post-excerpt */
+.post-excerpt {
+  margin: 12px;                    /* ✅ #22 */
+  color: #555;                     /* ✅ #22 */
+}
+
+/* Targets .read-more */
+.read-more {
+  color: white;                    /* ✅ #14 */
+  background-color: #333;          /* ✅ #15 */
+  margin: 16px;                    /* ✅ #16 */
+  padding: 10px 20px;              /* ✅ #19 */
+  display: inline-block;           /* ✅ #17 */
+  border-radius: 6px;              /* ✅ #18 */
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover effect on .read-more */
+.read-more:hover {
+  background-color: #555;          /* ✅ #13 */
+}
