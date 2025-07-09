@@ -30,9 +30,12 @@ body {
 
 /* Targets .post-img */
 .post-img {
-  width: 100%; 
+  width: 100%;
+  height: 200px;           /* Set fixed height */
+  object-fit: cover;       /* Crop images nicely */
+  border-bottom: 2px solid #ccc;
   display: block;
-  border-bottom: 2px solid #ccc;  
+  background-color: white; /* Fills transparent images like logos */
 }
 
 /* Targets .post-content */
