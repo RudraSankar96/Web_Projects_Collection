@@ -1,0 +1,63 @@
+body {
+    font-family: Inter, sans-serif;
+    height: 100vh;
+    background-color: hsl(var(--background));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+.tabs {
+    font-size: 1.3 rem;
+    font-weight: 500;
+    padding: 0.5rem;
+    background-color: whitesmoke;
+    border-radius: 1000px;
+    box-shadow: 0 0 10px 0 rgba(24, 94 , 224, 0.15),
+                0 6px 12px 0 rgba(24, 94 , 224, 0.15);
+    list-style: none;
+    position: relative;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.tab {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:  0.5rem;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.tabs .slider {
+    width: 150px;
+    height: 50px;
+    position: absolute; 
+    border-radius: inherit;
+    background-color: hsl(var(--primary));
+    z-index: 0;
+    transition: all 0.3s ease;
+}
+
+input[type="radio"]:checked + label {
+    color: #f1f1f1;
+}
+
+input[id="html"]:checked ~ .slider {
+    transform: translateX(0);
+}
+input[id="css"]:checked ~ .slider {
+    transform: translateX(100%);
+}
+input[id="javascript"]:checked ~ .slider {
+    transform: translateX(200%);
+}
+input[id="react"]:checked ~ .slider {
+    transform: translateX(300%);
+}
