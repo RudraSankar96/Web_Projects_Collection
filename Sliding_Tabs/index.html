@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Sliding Tabs – Pure CSS</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    :root {
-      --background: 0 0% 98%;
-      --primary: 220 90% 56%;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <h2>Sliding Tabs – Pure CSS</h2>
 
- <ul class="tabs">
-  <input type="radio" name="tab" id="html" checked>
-  <input type="radio" name="tab" id="css">
-  <input type="radio" name="tab" id="javascript">
-  <input type="radio" name="tab" id="react">
+  <!-- 📦 Everything inside ONE wrapper -->
+  <div class="tab-wrapper">
 
-  <label class="tab" for="html">HTML</label>
-  <label class="tab" for="css">CSS</label>
-  <label class="tab" for="javascript">JavaScript</label>
-  <label class="tab" for="react">React</label>
+    <!-- Inputs -->
+    <input type="radio" name="tab" id="html" checked />
+    <input type="radio" name="tab" id="css" />
+    <input type="radio" name="tab" id="javascript" />
+    <input type="radio" name="tab" id="react" />
 
-  <div class="slider"></div>
-</ul>
+    <!-- Tab Header -->
+    <div class="tab-header">
+      <label class="tab" for="html">HTML</label>
+      <label class="tab" for="css">CSS</label>
+      <label class="tab" for="javascript">JavaScript</label>
+      <label class="tab" for="react">React</label>
+      <div class="slider"></div>
+    </div>
 
+    <!-- Tab Contents -->
+    <div class="tab-contents">
+      <div class="content html-content">🌐 This is HTML content section.</div>
+      <div class="content css-content">🎨 This is CSS content section.</div>
+      <div class="content js-content">📜 This is JavaScript content section.</div>
+      <div class="content react-content">⚛️ This is React content section.</div>
+    </div>
+
+  </div>
 
 </body>
 </html>

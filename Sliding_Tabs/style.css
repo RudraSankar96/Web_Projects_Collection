@@ -19,25 +19,29 @@ h2 {
   margin-bottom: 2rem;
 }
 
-.tabs {
-  font-size: 1.2rem;
-  font-weight: 500;
-  background-color: whitesmoke;
-  border-radius: 100px;
-  box-shadow: 0 0 12px rgba(24, 94, 224, 0.15),
-              0 6px 12px rgba(24, 94, 224, 0.15);
-  list-style: none;
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  width: fit-content;
-  padding: 5px;
-}
-
 input[type="radio"] {
   display: none;
 }
 
+.tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Tab Header (the pill-like tab bar) */
+.tab-header {
+  display: flex;
+  background-color: whitesmoke;
+  border-radius: 100px;
+  box-shadow: 0 0 12px rgba(24, 94, 224, 0.15),
+              0 6px 12px rgba(24, 94, 224, 0.15);
+  position: relative;
+  padding: 5px;
+  gap: 5px;
+}
+
+/* Individual Tabs */
 .tab {
   width: 150px;
   height: 50px;
@@ -49,19 +53,22 @@ input[type="radio"] {
   z-index: 2;
   transition: color 0.3s ease;
   color: black;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
-input[id="html"]:checked ~ label[for="html"],
-input[id="css"]:checked ~ label[for="css"],
-input[id="javascript"]:checked ~ label[for="javascript"],
-input[id="react"]:checked ~ label[for="react"] {
+/* Active tab label text */
+input[id="html"]:checked ~ .tab-header label[for="html"],
+input[id="css"]:checked ~ .tab-header label[for="css"],
+input[id="javascript"]:checked ~ .tab-header label[for="javascript"],
+input[id="react"]:checked ~ .tab-header label[for="react"] {
   color: white;
   font-weight: 600;
   z-index: 3;
 }
 
-
-.tabs .slider {
+/* Sliding Blue Slider */
+.slider {
   position: absolute;
   height: 50px;
   width: 150px;
@@ -73,16 +80,53 @@ input[id="react"]:checked ~ label[for="react"] {
   z-index: 1;
 }
 
-/* Slider movement */
-input[id="html"]:checked ~ .slider {
+/* Slider Positioning */
+input[id="html"]:checked ~ .tab-header .slider {
   transform: translateX(0%);
 }
-input[id="css"]:checked ~ .slider {
+input[id="css"]:checked ~ .tab-header .slider {
   transform: translateX(100%);
 }
-input[id="javascript"]:checked ~ .slider {
+input[id="javascript"]:checked ~ .tab-header .slider {
   transform: translateX(200%);
 }
-input[id="react"]:checked ~ .slider {
+input[id="react"]:checked ~ .tab-header .slider {
   transform: translateX(300%);
+}
+
+/* Tab Content Container */
+.tab-contents {
+  margin-top: 2rem;
+  width: 600px;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 1rem;
+  background: #f5f5f5;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  min-height: 80px;
+}
+
+/* Hide all content by default */
+.content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+/* Show selected tab content */
+input[id="html"]:checked ~ .tab-contents .html-content,
+input[id="css"]:checked ~ .tab-contents .css-content,
+input[id="javascript"]:checked ~ .tab-contents .js-content,
+input[id="react"]:checked ~ .tab-contents .react-content {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  position: relative;
 }
