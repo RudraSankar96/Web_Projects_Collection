@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Sliding Tabs – Pure CSS</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --background: 0 0% 98%;
+      --primary: 220 90% 56%;
+    }
+  </style>
 </head>
 <body>
-    
+
+  <h2>Sliding Tabs – Pure CSS</h2>
+
+ <ul class="tabs">
+  <input type="radio" name="tab" id="html" checked>
+  <input type="radio" name="tab" id="css">
+  <input type="radio" name="tab" id="javascript">
+  <input type="radio" name="tab" id="react">
+
+  <label class="tab" for="html">HTML</label>
+  <label class="tab" for="css">CSS</label>
+  <label class="tab" for="javascript">JavaScript</label>
+  <label class="tab" for="react">React</label>
+
+  <div class="slider"></div>
+</ul>
+
+
 </body>
 </html>

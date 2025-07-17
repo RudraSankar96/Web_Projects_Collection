@@ -1,63 +1,88 @@
+:root {
+  --background: 0 0% 98%;
+  --primary: 220 90% 56%;
+}
+
 body {
-    font-family: Inter, sans-serif;
-    height: 100vh;
-    background-color: hsl(var(--background));
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4rem;
+  font-family: Inter, sans-serif;
+  height: 100vh;
+  background-color: hsl(var(--background));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
 }
 
 .tabs {
-    font-size: 1.3 rem;
-    font-weight: 500;
-    padding: 0.5rem;
-    background-color: whitesmoke;
-    border-radius: 1000px;
-    box-shadow: 0 0 10px 0 rgba(24, 94 , 224, 0.15),
-                0 6px 12px 0 rgba(24, 94 , 224, 0.15);
-    list-style: none;
-    position: relative;
+  font-size: 1.2rem;
+  font-weight: 500;
+  background-color: whitesmoke;
+  border-radius: 100px;
+  box-shadow: 0 0 12px rgba(24, 94, 224, 0.15),
+              0 6px 12px rgba(24, 94, 224, 0.15);
+  list-style: none;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: fit-content;
+  padding: 5px;
 }
 
 input[type="radio"] {
-    display: none;
+  display: none;
 }
 
 .tab {
-    width: 150px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding:  0.5rem;
-    cursor: pointer;
-    z-index: 2;
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 100px;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
+  color: black;
 }
+
+input[id="html"]:checked ~ label[for="html"],
+input[id="css"]:checked ~ label[for="css"],
+input[id="javascript"]:checked ~ label[for="javascript"],
+input[id="react"]:checked ~ label[for="react"] {
+  color: white;
+  font-weight: 600;
+  z-index: 3;
+}
+
 
 .tabs .slider {
-    width: 150px;
-    height: 50px;
-    position: absolute; 
-    border-radius: inherit;
-    background-color: hsl(var(--primary));
-    z-index: 0;
-    transition: all 0.3s ease;
+  position: absolute;
+  height: 50px;
+  width: 150px;
+  border-radius: 100px;
+  top: 5px;
+  left: 5px;
+  background-color: hsl(var(--primary));
+  transition: all 0.3s ease;
+  z-index: 1;
 }
 
-input[type="radio"]:checked + label {
-    color: #f1f1f1;
-}
-
+/* Slider movement */
 input[id="html"]:checked ~ .slider {
-    transform: translateX(0);
+  transform: translateX(0%);
 }
 input[id="css"]:checked ~ .slider {
-    transform: translateX(100%);
+  transform: translateX(100%);
 }
 input[id="javascript"]:checked ~ .slider {
-    transform: translateX(200%);
+  transform: translateX(200%);
 }
 input[id="react"]:checked ~ .slider {
-    transform: translateX(300%);
+  transform: translateX(300%);
 }
