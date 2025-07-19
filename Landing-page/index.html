@@ -3,21 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Product Landing Page</title>
+  <title>GadgetPro Landing Page</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="bg-animation"></div> <!-- Animated Background -->
+
   <header>
     <div class="container">
       <h1>GadgetPro</h1>
-      <button id="toggleTheme">🌙</button>
+
+      <div class="header-right">
+        <button id="toggleTheme">🌙</button>
+
+        <div class="cart">
+          🛒 <span id="cartCount">0</span>
+        </div>
+      </div>
     </div>
   </header>
 
   <section class="hero">
     <h2>Your Ultimate Smart Gadget</h2>
     <p>Experience innovation like never before with our new AI-powered smart device.</p>
-    <a href="#" class="btn">Buy Now</a>
+    <button class="btn" id="addToCartBtn">Add to Cart</button>
   </section>
 
   <section class="features">
