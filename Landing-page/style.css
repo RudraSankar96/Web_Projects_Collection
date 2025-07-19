@@ -1,0 +1,105 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f4f4;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+header {
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(to right, #667eea, #764ba2);
+  color: white;
+}
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+.btn {
+  text-decoration: none;
+  background: #fff;
+  color: #764ba2;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.btn:hover {
+  background: #e2e2e2;
+}
+
+/* Features Section */
+.features {
+  display: flex;
+  justify-content: space-around;
+  padding: 60px 20px;
+  background: #f9f9f9;
+  flex-wrap: wrap;
+}
+.feature {
+  width: 30%;
+  margin: 15px 0;
+  text-align: center;
+}
+.feature h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #eee;
+}
+
+/* Dark Mode */
+.dark-mode {
+  background: #121212;
+  color: #f1f1f1;
+}
+.dark-mode header {
+  background: #1f1f1f;
+}
+.dark-mode .hero {
+  background: linear-gradient(to right, #1f1c2c, #928dab);
+}
+.dark-mode .btn {
+  background: #333;
+  color: #fff;
+}
+.dark-mode footer {
+  background: #1f1f1f;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+  .feature {
+    width: 80%;
+  }
+}
