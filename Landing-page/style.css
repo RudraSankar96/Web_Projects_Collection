@@ -246,3 +246,18 @@ footer {
 .dark-mode .products {
   background: #121212;
 }
+.dark-mode header h1 {
+  color: white;
+  font-weight: 700;
+}
+
+.dark-mode .product-card h3 {
+  color: #fff;
+}
+
+.dark-mode .product-card p {
+  color: #ccc;
+}
+body {
+  transition: background 0.4s ease, color 0.4s ease;
+}
