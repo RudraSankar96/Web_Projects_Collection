@@ -236,3 +236,13 @@ footer {
     width: 80%;
   }
 }
+
+/* Fix for dark mode section title */
+.dark-mode .section-title {
+  color: #fff;
+}
+
+/* Optional: darken products background a bit more for contrast */
+.dark-mode .products {
+  background: #121212;
+}
