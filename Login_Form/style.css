@@ -1,3 +1,9 @@
+body{
+    
+    background-image: url(background.jpg);
+}
+
+
 /* Already existing styles */
 .login-form {
     width: 300px;
