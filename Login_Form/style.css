@@ -1,3 +1,4 @@
+/* Already existing styles */
 .login-form {
     width: 300px;
     margin: 100px auto;
@@ -8,6 +9,8 @@
     background-color: #cbe78c;
     text-align: center; 
 }
+
+/* Input Fields */
 .login-form input[type="text"],
 .login-form input[type="password"] {
     width: 90%;
@@ -15,14 +18,37 @@
     margin: 10px 0;
     border: 1px solid #999;
     border-radius: 4px;
-    box-sizing: border-box;
     font-size: 16px;
-    transition: 0.3s;
+    box-sizing: border-box;
 }
 
-.login-form input[type="text"]:focus,
-.login-form input[type="password"]:focus {
-    border-color: #4CAF50;
-    outline: none;
-    box-shadow: 0 0 5px #68c86b;
+/* Button Style */
+.login-form button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* ✅ Responsive Code */
+@media screen and (max-width: 480px) {
+    .login-form {
+        width: 90%;
+        margin: 50px auto;
+        padding: 15px;
+    }
+
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .login-form button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
 }
