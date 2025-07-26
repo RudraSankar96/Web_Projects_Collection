@@ -1,0 +1,146 @@
+/* style.css */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0e0e0e;
+  color: white;
+  overflow-x: hidden;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 40px;
+  background-color: #0e0e0e;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2cd4ff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-links li {
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.start-btn {
+  background-color: #1b1b1b;
+  border: 1px solid #2cd4ff;
+  padding: 10px 16px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.start-btn:hover {
+  background-color: #2cd4ff;
+  color: black;
+}
+
+.hero {
+  text-align: left;
+  padding: 100px 40px;
+  max-width: 700px;
+}
+
+.hero h1 {
+  font-size: 3.8rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.hero h1 span {
+  color: white;
+}
+
+.hero p {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: #cfcfcf;
+}
+
+.cta-buttons {
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+}
+
+.quote-btn, .launch-btn {
+  padding: 14px 24px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.quote-btn {
+  background: transparent;
+  border: 1px solid #2cd4ff;
+  color: #2cd4ff;
+}
+
+.quote-btn:hover {
+  background: #2cd4ff;
+  color: black;
+}
+
+.launch-btn {
+  background: #1b1b1b;
+  color: white;
+}
+
+.launch-btn:hover {
+  background: #333;
+}
+
+.floating-logos {
+  position: absolute;
+  right: 60px;
+  top: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  animation: floatY 6s ease-in-out infinite;
+}
+
+.float-img {
+  width: 60px;
+  animation: floatX 4s ease-in-out infinite alternate;
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes floatX {
+  0% { transform: rotate(0deg) translateX(0); }
+  100% { transform: rotate(10deg) translateX(10px); }
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .floating-logos {
+    display: none;
+  }
+
+  .cta-buttons {
+    justify-content: center;
+  }
+}
