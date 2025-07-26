@@ -49,6 +49,18 @@ header {
   box-shadow: 0 0 15px rgba(0,0,0,0.5);
   animation: fadeIn 1s ease-in-out;
 }
+.intro {
+  background-color: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  max-width: 640px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
 
 /* Headings */
 h1, p {
@@ -56,6 +68,18 @@ h1, p {
   padding: 5px;
   color: #fff;
 }
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
 
 /* iframe container */
 .form-container {
@@ -66,6 +90,7 @@ h1, p {
   width: 100%;
   box-shadow: 0 0 15px rgba(0,0,0,0.5);
   animation: fadeIn 1s ease-in-out;
+  align-self: center;
 }
 
 /* iframe itself */
