@@ -12,3 +12,8 @@ document.getElementById("checkBtn").addEventListener("click", () => {
         message.textContent = "📈 Too high!";
     }
 });
+document.getElementById("restartBtn").addEventListener("click", () => {
+    secretNumber = Math.floor(Math.random() * 100) + 1;
+    document.getElementById("message").textContent = "";
+    document.getElementById("guess").value = "";
+});
