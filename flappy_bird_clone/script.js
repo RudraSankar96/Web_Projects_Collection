@@ -78,3 +78,28 @@ function drawScore() {
     ctx.font = "20px Arial";
     ctx.fillText("Score: " + score, 10, 20);
 }
+
+function gameLoop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    drawBird();
+    drawPipes();
+    drawScore();
+
+    velocity += gravity;
+    birdY += velocity;
+
+    updatePipes();
+    checkCollision();
+
+    if (!gameOver) {
+        requestAnimationFrame(gameLoop);
+    } else {
+        ctx.fillStyle = "red";
+        ctx.font = "30px Arial";
+        ctx.fillText("Game Over!", canvas.width / 2 - 80, canvas.height / 2);
+        ctx.fillText("Score: " + score, canvas.width / 2 - 50, canvas.height / 2 + 40);
+    }
+}
+
+gameLoop();
