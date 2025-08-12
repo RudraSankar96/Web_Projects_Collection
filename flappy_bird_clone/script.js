@@ -72,3 +72,9 @@ function checkCollision() {
         }
     }
 }
+
+function drawScore() {
+    ctx.fillStyle = "white";
+    ctx.font = "20px Arial";
+    ctx.fillText("Score: " + score, 10, 20);
+}
