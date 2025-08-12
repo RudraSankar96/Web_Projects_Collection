@@ -34,3 +34,26 @@ function drawBird() {
     ctx.arc(birdX, birdY, birdSize, 0, Math.PI * 2);
     ctx.fill();
 }
+
+function drawPipes() {
+    ctx.fillStyle = "green";
+    for (let i = 0; i < pipes.length; i++) {
+        let p = pipes[i];
+        ctx.fillRect(p.x, 0, pipeWidth, p.top);
+        ctx.fillRect(p.x, p.top + pipeGap, pipeWidth, canvas.height - p.top - pipeGap);
+    }
+}
+
+function updatePipes() {
+    if (pipes.length === 0 || pipes[pipes.length - 1].x < canvas.width - 200) {
+        let top = Math.random() * (canvas.height - pipeGap - 50) + 20;
+        pipes.push({ x: canvas.width, top: top });
+    }
+    for (let i = 0; i < pipes.length; i++) {
+        pipes[i].x -= pipeSpeed;
+        if (pipes[i].x + pipeWidth < 0) {
+            pipes.splice(i, 1);
+            score++;
+        }
+    }
+}
