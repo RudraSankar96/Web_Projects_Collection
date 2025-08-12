@@ -57,3 +57,18 @@ function updatePipes() {
         }
     }
 }
+
+function checkCollision() {
+    if (birdY + birdSize > canvas.height || birdY - birdSize < 0) {
+        gameOver = true;
+    }
+    for (let p of pipes) {
+        if (
+            birdX + birdSize > p.x &&
+            birdX - birdSize < p.x + pipeWidth &&
+            (birdY - birdSize < p.top || birdY + birdSize > p.top + pipeGap)
+        ) {
+            gameOver = true;
+        }
+    }
+}
