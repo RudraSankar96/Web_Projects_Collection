@@ -21,3 +21,16 @@ let pipeSpeed = 2;
 // Score
 let score = 0;
 let gameOver = false;
+
+document.addEventListener("keydown", function (e) {
+    if (e.code === "Space") {
+        velocity = lift;
+    }
+});
+
+function drawBird() {
+    ctx.fillStyle = "yellow";
+    ctx.beginPath();
+    ctx.arc(birdX, birdY, birdSize, 0, Math.PI * 2);
+    ctx.fill();
+}
