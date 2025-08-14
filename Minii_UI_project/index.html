@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mini UI Project – Home</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+</head>
+<body>
+  <header class="site-header">
+    <img src="assets/logo.svg" alt="Logo" class="logo"/>
+    <nav class="nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <button id="themeToggle" aria-label="Toggle theme">🌓</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Welcome to the Mini UI Project</h1>
+      <p>Clean components: Accordion, Modal, Tabs, and Toast—no frameworks.</p>
+      <button id="openModal" class="btn">Open Modal</button>
+      <button id="showToast" class="btn outline">Show Toast</button>
+    </section>
+
+    <section>
+      <h2>Accordion</h2>
+      <div class="accordion" id="faq">
+        <button class="accordion__header" aria-expanded="false" aria-controls="a1" id="h1">
+          What is this project?
+        </button>
+        <div class="accordion__panel" id="a1" role="region" aria-labelledby="h1">
+          <p>A simple front-end starter with 12 files for quick GitHub pushes.</p>
+        </div>
+
+        <button class="accordion__header" aria-expanded="false" aria-controls="a2" id="h2">
+          How do I use it?
+        </button>
+        <div class="accordion__panel" id="a2" role="region" aria-labelledby="h2">
+          <p>Edit files, commit, and push. No build step required.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Tabs</h2>
+      <div class="tabs" data-tabs>
+        <div class="tablist" role="tablist" aria-label="Demo Tabs">
+          <button role="tab" aria-selected="true" aria-controls="tab-panel-1" id="tab-1">Overview</button>
+          <button role="tab" aria-selected="false" aria-controls="tab-panel-2" id="tab-2">Code</button>
+          <button role="tab" aria-selected="false" aria-controls="tab-panel-3" id="tab-3">Tips</button>
+        </div>
+        <div id="tab-panel-1" role="tabpanel" aria-labelledby="tab-1">
+          <p>Use this template for learning, demos, and portfolio practice.</p>
+        </div>
+        <div id="tab-panel-2" role="tabpanel" aria-labelledby="tab-2" hidden>
+          <pre><code>HTML + CSS + JS only. Accessible patterns included.</code></pre>
+        </div>
+        <div id="tab-panel-3" role="tabpanel" aria-labelledby="tab-3" hidden>
+          <ul>
+            <li>Keep commits small and meaningful.</li>
+            <li>Write clear messages (e.g., "feat: add modal component").</li>
+            <li>Use issues to track ideas.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog">
+      <header class="modal__header">
+        <h3 id="modalTitle">Quick Modal</h3>
+        <button class="icon-btn" data-close aria-label="Close">✕</button>
+      </header>
+      <div class="modal__body">
+        <p>This is a lightweight, accessible modal. Press ESC to close.</p>
+      </div>
+      <footer class="modal__footer">
+        <button class="btn" data-close>Close</button>
+      </footer>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <footer class="site-footer">
+    <small>© 2025 Mini UI Project</small>
+  </footer>
+
+  <script src="js/accordion.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/tabs.js"></script>
+  <script src="js/toast.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+""")
+
+files["about.html"] = textwrap.dedent("""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About – Mini UI Project</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+</head>
+<body>
+  <header class="site-header">
+    <img src="assets/logo.svg" alt="Logo" class="logo"/>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contact</a>
+      <button id="themeToggle" aria-label="Toggle theme">🌓</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>About This Project</h1>
+    <p>This repo is designed to give you 12 meaningful files for GitHub practice.</p>
+    <ul>
+      <li>Semantic HTML</li>
+      <li>Responsive CSS</li>
+      <li>Accessible JS components</li>
+    </ul>
+  </main>
+
+  <footer class="site-footer">
+    <small>© 2025 Mini UI Project</small>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
