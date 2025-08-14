@@ -1,0 +1,10 @@
+/* Light/Dark Theme handled with [data-theme] on html */
+:root[data-theme="light"] {
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --primary: #2563eb;
+  --ring: rgba(37,99,235,0.35);
+  --border: #e5e7eb;
+}
