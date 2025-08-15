@@ -125,3 +125,26 @@ body{
 
 /* Footer */
 .foot{ text-align:center; opacity:.8; padding-bottom:16px }
+
+/* Animations */
+@keyframes wave{
+  0%{ background-position: 0 0; }
+  100%{ background-position: 180px 0; }
+}
+@keyframes tilt{
+  0%,100%{ transform: perspective(800px) rotateY(18deg) skewY(-1deg) }
+  50%{    transform: perspective(800px) rotateY(10deg) skewY(1deg) }
+}
+@keyframes spin{
+  to{ transform: translate(-50%,-50%) rotate(360deg) }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .flag, .flag .cloth, .chakra { animation: none !important; }
+}
+
+/* Small screens */
+@media (max-width: 520px){
+  .controls{ flex-wrap:wrap; justify-content:center }
+}
