@@ -1,0 +1,46 @@
+:root{
+  --bg:#0b1020;
+  --text:#e8edf3;
+  --speed: 1;            /* multiplier from JS */
+  --wave-duration: calc(5s / var(--speed));
+  --tilt-duration: calc(6s / var(--speed));
+  --chakra-rot: calc(8s / var(--speed));
+  --saffron:#FF9933;
+  --white:#FFFFFF;
+  --green:#138808;
+  --chakra:#0a5bd3;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  color:var(--text);
+  background:
+    radial-gradient(80vmax 80vmax at 10% 10%, #1a2450 0%, transparent 60%),
+    radial-gradient(80vmax 80vmax at 90% 20%, #102a3a 0%, transparent 60%),
+    var(--bg);
+  display:flex; flex-direction:column; gap:24px;
+}
+
+.hero{
+  text-align:center; padding:24px 16px 0;
+}
+.hero h1{
+  margin:0; font-size: clamp(1.8rem, 2.5vw + 1rem, 3.2rem);
+  letter-spacing: .5px; font-weight:800;
+}
+.tri-text{
+  background: linear-gradient(90deg,var(--saffron),var(--white),var(--green));
+  -webkit-background-clip:text; background-clip:text;
+  color:transparent;
+  text-shadow: 0 0 12px rgba(255,255,255,.15);
+}
+.tagline{opacity:.9; margin-top:6px}
+
+.stage{
+  position:relative;
+  display:grid; place-items:center;
+  padding: 10px 16px 24px;
+}
