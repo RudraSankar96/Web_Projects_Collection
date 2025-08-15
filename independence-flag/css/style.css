@@ -79,3 +79,21 @@ body{
   box-shadow: 0 20px 30px rgba(0,0,0,.35);
   outline:1px solid rgba(255,255,255,.08);
 }
+
+/* three stripes */
+.stripe{position:absolute; left:0; right:0}
+.saffron{top:0; height:33.333%; background:var(--saffron)}
+.white{top:33.333%; height:33.334%; background:var(--white)}
+.green{bottom:0; height:33.333%; background:var(--green)}
+
+/* cloth shading that waves */
+.flag .cloth{
+  position:absolute; inset:0; pointer-events:none; mix-blend-mode: multiply;
+  background:
+    repeating-linear-gradient( -10deg,
+      rgba(0,0,0,.12) 0px, rgba(0,0,0,0) 18px,
+      rgba(0,0,0,.12) 36px, rgba(0,0,0,0) 54px
+    );
+  opacity:.45;
+  animation: wave var(--wave-duration) linear infinite;
+}
