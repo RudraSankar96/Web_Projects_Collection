@@ -44,3 +44,24 @@ body{
   display:grid; place-items:center;
   padding: 10px 16px 24px;
 }
+/* pole */
+.pole{
+  position:absolute; left: clamp(8px, 4vw, 36px); top: 20px; bottom: 80px; width: 10px;
+  background: linear-gradient(#c8d0d8, #8e9aa8);
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0,0,0,.25);
+}
+.pole-top{
+  position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+  width:18px; height:18px; border-radius:50%;
+  background: radial-gradient(circle at 30% 30%, #fff, #d0d8e2 60%, #9aa8b8);
+  box-shadow: 0 4px 8px rgba(0,0,0,.25);
+}
+.rope{
+  position:absolute; top:40px; left:10px; width:18px; height:2px; background:#d8d8d8;
+}
+.base{
+  position:absolute; bottom:-10px; left:50%; transform:translateX(-50%);
+  width:30px; height:14px; border-radius:6px;
+  background: linear-gradient(#7c8796, #4e5a6b);
+}
