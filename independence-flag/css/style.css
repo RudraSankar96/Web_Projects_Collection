@@ -97,3 +97,31 @@ body{
   opacity:.45;
   animation: wave var(--wave-duration) linear infinite;
 }
+
+/* Ashoka Chakra */
+.chakra{
+  position:absolute; left:50%; top:50%; transform: translate(-50%,-50%);
+  width: 26%; height: auto;
+  animation: spin var(--chakra-rot) linear infinite;
+  filter: drop-shadow(0 1px 0 #003c91);
+}
+
+/* Controls */
+.controls{
+  display:flex; align-items:center; gap:10px;
+  margin-top: 18px; padding: 10px 12px; border-radius: 12px;
+  background: rgba(255,255,255,.06); backdrop-filter: blur(6px);
+  border:1px solid rgba(255,255,255,.12);
+}
+.controls label{font-weight:600}
+.controls input[type="range"]{width:200px}
+#toggle{
+  padding:8px 14px; border-radius: 999px; border: none; cursor:pointer;
+  font-weight:700;
+  background: linear-gradient(90deg,var(--saffron),var(--green));
+  color:#112; box-shadow: 0 6px 14px rgba(0,0,0,.3);
+}
+#toggle[aria-pressed="true"]{opacity:.8}
+
+/* Footer */
+.foot{ text-align:center; opacity:.8; padding-bottom:16px }
