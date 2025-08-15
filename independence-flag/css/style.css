@@ -1,150 +1,68 @@
-:root{
-  --bg:#0b1020;
-  --text:#e8edf3;
-  --speed: 1;            /* multiplier from JS */
-  --wave-duration: calc(5s / var(--speed));
-  --tilt-duration: calc(6s / var(--speed));
-  --chakra-rot: calc(8s / var(--speed));
-  --saffron:#FF9933;
-  --white:#FFFFFF;
-  --green:#138808;
-  --chakra:#0a5bd3;
-}
-
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-  color:var(--text);
-  background:
-    radial-gradient(80vmax 80vmax at 10% 10%, #1a2450 0%, transparent 60%),
-    radial-gradient(80vmax 80vmax at 90% 20%, #102a3a 0%, transparent 60%),
-    var(--bg);
-  display:flex; flex-direction:column; gap:24px;
+body {
+  background: #0b1020;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .hero{
-  text-align:center; padding:24px 16px 0;
+  text-align:center; padding:24px 16px 0; color: white;
 }
 .hero h1{
   margin:0; font-size: clamp(1.8rem, 2.5vw + 1rem, 3.2rem);
-  letter-spacing: .5px; font-weight:800;
-}
-.tri-text{
-  background: linear-gradient(90deg,var(--saffron),var(--white),var(--green));
-  -webkit-background-clip:text; background-clip:text;
-  color:transparent;
-  text-shadow: 0 0 12px rgba(255,255,255,.15);
-}
-.tagline{opacity:.9; margin-top:6px}
-
-.stage{
-  position:relative;
-  display:grid; place-items:center;
-  padding: 10px 16px 24px;
-}
-/* pole */
-.pole{
-  position:absolute; left: clamp(8px, 4vw, 36px); top: 20px; bottom: 80px; width: 10px;
-  background: linear-gradient(#c8d0d8, #8e9aa8);
-  border-radius: 10px;
-  box-shadow: inset 0 0 6px rgba(0,0,0,.25);
-}
-.pole-top{
-  position:absolute; top:-14px; left:50%; transform:translateX(-50%);
-  width:18px; height:18px; border-radius:50%;
-  background: radial-gradient(circle at 30% 30%, #fff, #d0d8e2 60%, #9aa8b8);
-  box-shadow: 0 4px 8px rgba(0,0,0,.25);
-}
-.rope{
-  position:absolute; top:40px; left:10px; width:18px; height:2px; background:#d8d8d8;
-}
-.base{
-  position:absolute; bottom:-10px; left:50%; transform:translateX(-50%);
-  width:30px; height:14px; border-radius:6px;
-  background: linear-gradient(#7c8796, #4e5a6b);
+  letter-spacing: .5px; font-weight:800; color: white;
 }
 
-/* flag */
-.flag{
-  margin-left: clamp(32px, 6vw, 60px);
-  width: clamp(260px, 60vw, 680px);
-  height: calc(clamp(260px, 60vw, 680px) * 2/3);
-  position:relative; display:block;
-  border-radius: 6px;
-  overflow:hidden;
+.flag-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.pole {
+  width: 10px;
+  height: 300px;
+  background: silver;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.4);
+}
+
+.flag {
+  width: 300px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  animation: wave 3s ease-in-out infinite;
   transform-origin: left center;
-  animation: tilt var(--tilt-duration) ease-in-out infinite;
-  box-shadow: 0 20px 30px rgba(0,0,0,.35);
-  outline:1px solid rgba(255,255,255,.08);
 }
 
-/* three stripes */
-.stripe{position:absolute; left:0; right:0}
-.saffron{top:0; height:33.333%; background:var(--saffron)}
-.white{top:33.333%; height:33.334%; background:var(--white)}
-.green{bottom:0; height:33.333%; background:var(--green)}
-
-/* cloth shading that waves */
-.flag .cloth{
-  position:absolute; inset:0; pointer-events:none; mix-blend-mode: multiply;
-  background:
-    repeating-linear-gradient( -10deg,
-      rgba(0,0,0,.12) 0px, rgba(0,0,0,0) 18px,
-      rgba(0,0,0,.12) 36px, rgba(0,0,0,0) 54px
-    );
-  opacity:.45;
-  animation: wave var(--wave-duration) linear infinite;
+.stripe {
+  height: 33.33%;
+  width: 100%;
 }
 
-/* Ashoka Chakra */
-.chakra{
-  position:absolute; left:50%; top:50%; transform: translate(-50%,-50%);
-  width: 26%; height: auto;
-  animation: spin var(--chakra-rot) linear infinite;
-  filter: drop-shadow(0 1px 0 #003c91);
+.saffron { background: #FF9933; }
+.white { background: white; position: relative; }
+.green { background: #138808; }
+
+.chakra {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  animation: spin 8s linear infinite;
 }
 
-/* Controls */
-.controls{
-  display:flex; align-items:center; gap:10px;
-  margin-top: 18px; padding: 10px 12px; border-radius: 12px;
-  background: rgba(255,255,255,.06); backdrop-filter: blur(6px);
-  border:1px solid rgba(255,255,255,.12);
-}
-.controls label{font-weight:600}
-.controls input[type="range"]{width:200px}
-#toggle{
-  padding:8px 14px; border-radius: 999px; border: none; cursor:pointer;
-  font-weight:700;
-  background: linear-gradient(90deg,var(--saffron),var(--green));
-  color:#112; box-shadow: 0 6px 14px rgba(0,0,0,.3);
-}
-#toggle[aria-pressed="true"]{opacity:.8}
-
-/* Footer */
-.foot{ text-align:center; opacity:.8; padding-bottom:16px }
-
-/* Animations */
-@keyframes wave{
-  0%{ background-position: 0 0; }
-  100%{ background-position: 180px 0; }
-}
-@keyframes tilt{
-  0%,100%{ transform: perspective(800px) rotateY(18deg) skewY(-1deg) }
-  50%{    transform: perspective(800px) rotateY(10deg) skewY(1deg) }
-}
-@keyframes spin{
-  to{ transform: translate(-50%,-50%) rotate(360deg) }
+/* Wave animation with fixed pole side */
+@keyframes wave {
+  0% { transform: perspective(600px) rotateY(0deg) skewY(0deg) translateX(0); }
+  25% { transform: perspective(600px) rotateY(5deg) skewY(1deg) translateX(1px); }
+  50% { transform: perspective(600px) rotateY(0deg) skewY(0deg) translateX(0); }
+  75% { transform: perspective(600px) rotateY(-5deg) skewY(-1deg) translateX(-1px); }
+  100% { transform: perspective(600px) rotateY(0deg) skewY(0deg) translateX(0); }
 }
 
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce){
-  .flag, .flag .cloth, .chakra { animation: none !important; }
-}
-
-/* Small screens */
-@media (max-width: 520px){
-  .controls{ flex-wrap:wrap; justify-content:center }
+@keyframes spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
 }
