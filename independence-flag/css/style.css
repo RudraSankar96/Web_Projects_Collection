@@ -65,3 +65,17 @@ body{
   width:30px; height:14px; border-radius:6px;
   background: linear-gradient(#7c8796, #4e5a6b);
 }
+
+/* flag */
+.flag{
+  margin-left: clamp(32px, 6vw, 60px);
+  width: clamp(260px, 60vw, 680px);
+  height: calc(clamp(260px, 60vw, 680px) * 2/3);
+  position:relative; display:block;
+  border-radius: 6px;
+  overflow:hidden;
+  transform-origin: left center;
+  animation: tilt var(--tilt-duration) ease-in-out infinite;
+  box-shadow: 0 20px 30px rgba(0,0,0,.35);
+  outline:1px solid rgba(255,255,255,.08);
+}
