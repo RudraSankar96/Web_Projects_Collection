@@ -146,3 +146,56 @@ body{
 .is-dancing .arm.right{ animation:dance-arm 0.5s ease-in-out infinite }
 .is-dancing .leg.left,
 .is-dancing .leg.right{ animation:dance-leg 0.5s ease-in-out infinite }
+
+/* Keyframes */
+@keyframes blink{
+  0%,92%,100%{ transform:scaleY(1) }
+  94%,98%{ transform:scaleY(0.1) }
+}
+@keyframes bob{
+  0%,100%{ transform:translateY(0) }
+  50%{ transform:translateY(2px) }
+}
+@keyframes walk-leg{
+  0%{ transform:rotate(18deg) }
+  50%{ transform:rotate(-18deg) }
+  100%{ transform:rotate(18deg) }
+}
+@keyframes wave{
+  0%,100%{ transform:rotate(0deg) }
+  50%{ transform:rotate(-24deg) }
+}
+@keyframes wave-forearm{
+  0%,100%{ transform:rotate(0deg) }
+  50%{ transform:rotate(22deg) }
+}
+@keyframes jump{
+  0%{ transform:translateY(0) }
+  30%{ transform:translateY(-40px) }
+  60%{ transform:translateY(0) }
+  80%{ transform:translateY(-10px) }
+  100%{ transform:translateY(0) }
+}
+@keyframes dance-body{
+  0%,100%{ transform:rotate(0deg) }
+  50%{ transform:rotate(3deg) }
+}
+@keyframes dance-arm{
+  0%,100%{ transform:rotate(10deg) }
+  50%{ transform:rotate(-10deg) }
+}
+@keyframes dance-leg{
+  0%,100%{ transform:rotate(8deg) }
+  50%{ transform:rotate(-8deg) }
+}
+
+/* Footer hint */
+.hint{
+  text-align:center; padding:10px 14px; color:#1b2140cc; font-size:.95rem;
+}
+
+/* Small screens */
+@media (max-width:600px){
+  .character{ --scale:.9 }
+  .topbar h1{ font-size:1rem }
+}
