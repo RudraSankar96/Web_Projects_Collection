@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rudra's Animated Cartoon</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>🎬 Rudra's Animated Cartoon</h1>
+    <div class="controls">
+      <button id="btn-toggle">▶️ Start</button>
+      <button id="btn-flip">↔️ Flip</button>
+      <button id="btn-wave">👋 Wave</button>
+      <button id="btn-dance">🕺 Dance</button>
+      <label class="speed">
+        Speed
+        <input id="speed" type="range" min="40" max="300" value="120" />
+      </label>
+    </div>
+  </header>
+
+  <main class="scene" id="scene" aria-label="Cartoon scene">
+    <div class="ground"></div>
+
+    <!-- Character -->
+    <button class="character" id="character" aria-label="Cartoon character">
+      <div class="shadow"></div>
+      <div class="body">
+        <div class="head">
+          <div class="eye left"><span class="pupil"></span></div>
+          <div class="eye right"><span class="pupil"></span></div>
+          <div class="mouth"></div>
+          <div class="cap"><span class="cap-bill"></span></div>
+        </div>
+
+        <div class="torso"></div>
+
+        <div class="arm left">
+          <div class="forearm"></div>
+        </div>
+        <div class="arm right">
+          <div class="forearm"></div>
+        </div>
+
+        <div class="leg left">
+          <div class="shin"></div>
+        </div>
+        <div class="leg right">
+          <div class="shin"></div>
+        </div>
+      </div>
+    </button>
+  </main>
+
+  <footer class="hint">
+    💡 Click the character to make it wave. Press <kbd>Space</kbd> to jump. Press <kbd>D</kbd> to dance.
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
