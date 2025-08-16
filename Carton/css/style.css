@@ -103,3 +103,46 @@ body{
   width:110px; height:70px; background:var(--char-shirt); border:3px solid var(--outline); border-radius:18px;
   box-shadow:inset 0 -8px 0 #4956d8;
 }
+/* Arms */
+.arm{
+  position:absolute; top:94px; width:20px; height:54px; background:var(--char-shirt);
+  border:3px solid var(--outline); border-radius:12px; transform-origin:50% 0%;
+}
+.arm.left{ left:6px; }
+.arm.right{ right:6px; }
+.forearm{
+  position:absolute; bottom:-26px; left:50%; transform:translateX(-50%);
+  width:20px; height:36px; background:var(--char-skin); border:3px solid var(--outline); border-radius:12px;
+  transform-origin:50% 0%;
+}
+
+/* Legs */
+.leg{
+  position:absolute; top:150px; width:26px; height:54px; background:var(--char-pant);
+  border:3px solid var(--outline); border-radius:14px; transform-origin:50% 0%;
+}
+.leg.left{ left:38px }
+.leg.right{ right:38px }
+.shin{
+  position:absolute; bottom:-30px; left:50%; transform:translateX(-50%);
+  width:26px; height:40px; background:#20253a; border:3px solid var(--outline); border-radius:12px;
+}
+.shin::after{
+  content:""; position:absolute; bottom:-10px; left:50%; transform:translateX(-50%);
+  width:36px; height:14px; background:var(--char-shoe); border:3px solid var(--outline); border-radius:12px;
+}
+
+/* Animation states */
+.is-walking .leg.left{ animation:walk-leg 0.6s linear infinite }
+.is-walking .leg.right{ animation:walk-leg 0.6s linear infinite reverse }
+.is-walking .body{ animation:bob 0.6s ease-in-out infinite }
+
+.is-waving .arm.right{ animation:wave 0.9s ease-in-out 3 }
+.is-waving .forearm{ animation:wave-forearm 0.9s ease-in-out 3 }
+
+.is-jumping .body{ animation:jump 0.7s cubic-bezier(.22,.61,.36,1) }
+.is-dancing .body{ animation:dance-body 1s ease-in-out infinite }
+.is-dancing .arm.left,
+.is-dancing .arm.right{ animation:dance-arm 0.5s ease-in-out infinite }
+.is-dancing .leg.left,
+.is-dancing .leg.right{ animation:dance-leg 0.5s ease-in-out infinite }
