@@ -49,6 +49,60 @@
     character.classList.add('is-jumping');
     setTimeout(()=> character.classList.remove('is-jumping'), 700);
   }
+// --- Shirt color controls ---
+const btnShirtCycle  = document.getElementById('btn-shirt-cycle');
+const btnShirtRandom = document.getElementById('btn-shirt-random');
+
+// Fixed cycle colors (blue → red → green)
+const shirtColors = [
+  {name: 'Blue',  value: '#5b6cff'},
+  {name: 'Red',   value: '#ff4d4f'},
+  {name: 'Green', value: '#25c06d'}
+];
+let shirtIndex = 0;
+
+// Apply a shirt color by CSS variable (your CSS already uses --char-shirt)
+function setShirtColor(colorHex) {
+  document.documentElement.style.setProperty('--char-shirt', colorHex);
+  // (optional) persist
+  try { localStorage.setItem('shirtColor', colorHex); } catch {}
+}
+
+// Cycle button
+btnShirtCycle.addEventListener('click', () => {
+  shirtIndex = (shirtIndex + 1) % shirtColors.length;
+  const c = shirtColors[shirtIndex];
+  setShirtColor(c.value);
+  btnShirtCycle.textContent = `👕 Shirt: ${c.name}`;
+});
+
+// Random button (HSL → HEX)
+btnShirtRandom.addEventListener('click', () => {
+  const h = Math.floor(Math.random() * 360);
+  const s = 70 + Math.floor(Math.random() * 20); // 70–90%
+  const l = 55 + Math.floor(Math.random() * 10); // 55–65%
+  const c = hslToHex(h, s, l);
+  setShirtColor(c);
+  btnShirtCycle.textContent = '👕 Shirt: Custom';
+});
+
+// On load: restore previous color if saved
+(function initShirtFromStorage(){
+  try {
+    const saved = localStorage.getItem('shirtColor');
+    if(saved){ setShirtColor(saved); btnShirtCycle.textContent = '👕 Shirt: Custom'; }
+  } catch {}
+})();
+
+// Helper: HSL to HEX (compact)
+function hslToHex(h, s, l){
+  s/=100; l/=100;
+  const k = n => (n + h/30) % 12;
+  const a = s * Math.min(l, 1 - l);
+  const f = n => l - a * Math.max(-1, Math.min(k(n)-3, Math.min(9-k(n), 1)));
+  const toHex = x => Math.round(255 * x).toString(16).padStart(2, '0');
+  return `#${toHex(f(0))}${toHex(f(8))}${toHex(f(4))}`;
+}
 
   // Main loop
   function tick(ts){
