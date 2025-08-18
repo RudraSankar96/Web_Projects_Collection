@@ -199,3 +199,47 @@ body{
   .character{ --scale:.9 }
   .topbar h1{ font-size:1rem }
 }
+
+/* ☁️ Clouds */
+.cloud {
+  position: absolute;
+  top: 10%;
+  width: 120px;
+  height: 60px;
+  background: #a2a0b7;
+  border-radius: 50px;
+  opacity: 0.9;
+  filter: blur(1px);
+  box-shadow: -30px 0 40px #a7a6ae, 30px 0 40px #afb2ba;
+  animation: moveCloud 60s linear infinite;
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: #aaaaaf;
+  width: 80px;
+  height: 80px;
+  top: -20px;
+  left: 10px;
+  border-radius: 50%;
+}
+
+.cloud::after {
+  width: 60px;
+  height: 60px;
+  top: -10px;
+  left: 60px;
+}
+
+/* Different positions & speeds */
+.cloud1 { top: 8%;  left: -200px; animation-duration: 70s; }
+.cloud2 { top: 15%; left: -400px; animation-duration: 90s; }
+.cloud3 { top: 25%; left: -600px; animation-duration: 100s; }
+.cloud4 { top: 12%; left: -800px; animation-duration: 80s; }
+
+@keyframes moveCloud {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(1600px); }
+}
