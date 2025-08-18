@@ -16,8 +16,12 @@
       <button id="btn-dance">🕺 Dance</button>
       <button id="btn-shirt-cycle">👕 Shirt: Blue</button>
       <button id="btn-shirt-random">🎲 Random</button>
-
       <button id="btn-daynight">🌙 Night Mode</button>
+
+      <!-- 🔥 NEW BUTTONS -->
+      <button id="btn-run">🏃 Run</button>
+      <button id="btn-fly">🚀 Fly</button>
+      <button id="btn-stop">⏹ Stop</button>
 
       <label class="speed">
         Speed
@@ -30,11 +34,11 @@
     <div class="stars" id="stars"></div>
     <div class="ground"></div>
        
-     <!-- ☁️ Clouds -->
-  <div class="cloud cloud1"></div>
-  <div class="cloud cloud2"></div>
-  <div class="cloud cloud3"></div>
-  <div class="cloud cloud4"></div>
+    <!-- ☁️ Clouds -->
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="cloud cloud3"></div>
+    <div class="cloud cloud4"></div>
 
     <!-- Character -->
     <button class="character" id="character" aria-label="Cartoon character">
@@ -49,19 +53,15 @@
 
         <div class="torso"></div>
 
-        <div class="arm left">
-          <div class="forearm"></div>
-        </div>
-        <div class="arm right">
-          <div class="forearm"></div>
-        </div>
+        <div class="arm left"><div class="forearm"></div></div>
+        <div class="arm right"><div class="forearm"></div></div>
+        <div class="leg left"><div class="shin"></div></div>
+        <div class="leg right"><div class="shin"></div></div>
+      </div>
 
-        <div class="leg left">
-          <div class="shin"></div>
-        </div>
-        <div class="leg right">
-          <div class="shin"></div>
-        </div>
+      <!-- 🔥 Jetpack (hidden by default) -->
+      <div class="jetpack" id="jetpack">
+        <div class="fire"></div>
       </div>
     </button>
   </main>
