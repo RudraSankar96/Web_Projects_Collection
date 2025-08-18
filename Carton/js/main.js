@@ -5,130 +5,131 @@
   const btnFlip = document.getElementById('btn-flip');
   const btnWave = document.getElementById('btn-wave');
   const btnDance = document.getElementById('btn-dance');
+  const btnRun = document.getElementById('btn-run');
+  const btnFly = document.getElementById('btn-fly');
+  const btnStop = document.getElementById('btn-stop');
   const speedInput = document.getElementById('speed');
+  const jetpack = document.getElementById('jetpack');
 
   let running = false;
-  let dir = 1;              // 1 = right, -1 = left
-  let x = scene.clientWidth * 0.1;  // start at 10%
-  let speed = Number(speedInput.value); // px/sec
+  let flying = false;
+  let idleTimer = null;
+  let dir = 1;              
+  let x = scene.clientWidth * 0.1;  
+  let speed = Number(speedInput.value); 
   let last = null;
   let dancing = false;
 
-  // Apply transform from x position
+  // --- Place character ---
   function place() {
     character.style.left = `${x}px`;
-    character.style.transform = `translateX(0) scale(1) scaleX(${dir})`;
+    character.style.transform = `scaleX(${dir})`;
   }
 
-  // Start/stop walking
+  // --- Idle sleep system ---
+  function resetIdleTimer() {
+    clearTimeout(idleTimer);
+    character.classList.remove("is-sleeping");
+    idleTimer = setTimeout(() => {
+      if (!running && !flying && !dancing) {
+        character.classList.add("is-sleeping");
+      }
+    }, 5000); // 5 sec idle
+  }
+
+  // --- Walking toggle ---
   function setWalking(state){
     running = state;
     character.classList.toggle('is-walking', running && !dancing);
     btnToggle.textContent = running ? '⏸️ Pause' : '▶️ Start';
+    resetIdleTimer();
   }
 
-  // Wave action
+  // --- Run mode ---
+  function run(){
+    running = true;
+    character.classList.add("is-running");
+    speed = Number(speedInput.value) * 2;
+    resetIdleTimer();
+  }
+
+  // --- Fly mode ---
+  function fly(){
+    flying = !flying;
+    character.classList.toggle("is-flying", flying);
+    jetpack.style.display = flying ? "block" : "none";
+    resetIdleTimer();
+  }
+
+  // --- Stop everything ---
+  function stopAll(){
+    running = false;
+    flying = false;
+    dancing = false;
+    character.classList.remove("is-running","is-flying","is-walking","is-dancing");
+    jetpack.style.display = "none";
+    btnDance.textContent = '🕺 Dance';
+    btnToggle.textContent = '▶️ Start';
+    resetIdleTimer();
+  }
+
+  // --- Wave ---
   function wave(){
     character.classList.add('is-waving');
     setTimeout(()=> character.classList.remove('is-waving'), 1000);
+    resetIdleTimer();
   }
 
-  // Dance toggle
+  // --- Dance ---
   function toggleDance(){
     dancing = !dancing;
     character.classList.toggle('is-dancing', dancing);
-    // If dancing, stop walk anim legs but keep moving if running
     character.classList.toggle('is-walking', running && !dancing);
     btnDance.textContent = dancing ? '🛑 Stop Dance' : '🕺 Dance';
+    resetIdleTimer();
   }
 
-  // Jump action
+  // --- Jump ---
   function jump(){
-    // Prevent stacking
     if (character.classList.contains('is-jumping')) return;
     character.classList.add('is-jumping');
     setTimeout(()=> character.classList.remove('is-jumping'), 700);
+    resetIdleTimer();
   }
-// --- Shirt color controls ---
-const btnShirtCycle  = document.getElementById('btn-shirt-cycle');
-const btnShirtRandom = document.getElementById('btn-shirt-random');
 
-// Fixed cycle colors (blue → red → green)
-const shirtColors = [
-  {name: 'Blue',  value: '#5b6cff'},
-  {name: 'Red',   value: '#ff4d4f'},
-  {name: 'Green', value: '#25c06d'}
-];
-let shirtIndex = 0;
-
-// Apply a shirt color by CSS variable (your CSS already uses --char-shirt)
-function setShirtColor(colorHex) {
-  document.documentElement.style.setProperty('--char-shirt', colorHex);
-  // (optional) persist
-  try { localStorage.setItem('shirtColor', colorHex); } catch {}
-}
-
-// Cycle button
-btnShirtCycle.addEventListener('click', () => {
-  shirtIndex = (shirtIndex + 1) % shirtColors.length;
-  const c = shirtColors[shirtIndex];
-  setShirtColor(c.value);
-  btnShirtCycle.textContent = `👕 Shirt: ${c.name}`;
-});
-
-// Random button (HSL → HEX)
-btnShirtRandom.addEventListener('click', () => {
-  const h = Math.floor(Math.random() * 360);
-  const s = 70 + Math.floor(Math.random() * 20); // 70–90%
-  const l = 55 + Math.floor(Math.random() * 10); // 55–65%
-  const c = hslToHex(h, s, l);
-  setShirtColor(c);
-  btnShirtCycle.textContent = '👕 Shirt: Custom';
-});
-
-// On load: restore previous color if saved
-(function initShirtFromStorage(){
-  try {
-    const saved = localStorage.getItem('shirtColor');
-    if(saved){ setShirtColor(saved); btnShirtCycle.textContent = '👕 Shirt: Custom'; }
-  } catch {}
-})();
-
-// Helper: HSL to HEX (compact)
-function hslToHex(h, s, l){
-  s/=100; l/=100;
-  const k = n => (n + h/30) % 12;
-  const a = s * Math.min(l, 1 - l);
-  const f = n => l - a * Math.max(-1, Math.min(k(n)-3, Math.min(9-k(n), 1)));
-  const toHex = x => Math.round(255 * x).toString(16).padStart(2, '0');
-  return `#${toHex(f(0))}${toHex(f(8))}${toHex(f(4))}`;
-}
-
-  // Main loop
+  // --- Main loop ---
   function tick(ts){
     if(last == null) last = ts;
-    const dt = (ts - last) / 1000; // seconds
+    const dt = (ts - last) / 1000; 
     last = ts;
 
     if(running){
       x += dir * speed * dt;
-
-      // Bounce at edges
       const minX = 12;
-      const maxX = scene.clientWidth - 120; // character width approx
+      const maxX = scene.clientWidth - 120; 
       if(x < minX){ x = minX; dir = 1; place(); }
       if(x > maxX){ x = maxX; dir = -1; place(); }
       place();
     }
+
+    if(flying){
+      character.style.bottom = "200px"; // float in air
+    } else {
+      character.style.bottom = "0px";
+    }
+
     requestAnimationFrame(tick);
   }
 
-  // Events
+  // --- Events ---
   btnToggle.addEventListener('click', () => setWalking(!running));
   btnFlip.addEventListener('click', () => { dir *= -1; place(); });
   btnWave.addEventListener('click', wave);
   btnDance.addEventListener('click', toggleDance);
-  speedInput.addEventListener('input', () => { speed = Number(speedInput.value); });
+  btnRun.addEventListener('click', run);
+  btnFly.addEventListener('click', fly);
+  btnStop.addEventListener('click', stopAll);
+  speedInput.addEventListener('input', () => { speed = Number(speedInput.value); resetIdleTimer(); });
 
   character.addEventListener('click', wave);
 
@@ -139,29 +140,10 @@ function hslToHex(h, s, l){
     if(e.key === 'ArrowRight'){ dir = 1; setWalking(true); }
   });
 
-  // Handle resize for edge calculation
   window.addEventListener('resize', () => place());
 
-  // Initial place + start loop
+  // Init
   place();
   requestAnimationFrame(tick);
+  resetIdleTimer();
 })();
-const btnDayNight = document.getElementById("btn-daynight");
-const starsContainer = document.getElementById("stars");
-
-// Stars create karna
-for (let i = 0; i < 80; i++) {
-  let star = document.createElement("span");
-  star.style.top = Math.random() * 100 + "%";
-  star.style.left = Math.random() * 100 + "%";
-  star.style.animationDelay = (Math.random() * 3) + "s";
-  starsContainer.appendChild(star);
-}
-
-let night = false;
-btnDayNight.addEventListener("click", () => {
-  night = !night;
-  document.body.classList.toggle("night", night);
-  document.body.classList.toggle("day", !night);
-  btnDayNight.textContent = night ? "🌞 Day Mode" : "🌙 Night Mode";
-});
