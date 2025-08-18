@@ -92,3 +92,22 @@
   place();
   requestAnimationFrame(tick);
 })();
+const btnDayNight = document.getElementById("btn-daynight");
+const starsContainer = document.getElementById("stars");
+
+// Stars create karna
+for (let i = 0; i < 80; i++) {
+  let star = document.createElement("span");
+  star.style.top = Math.random() * 100 + "%";
+  star.style.left = Math.random() * 100 + "%";
+  star.style.animationDelay = (Math.random() * 3) + "s";
+  starsContainer.appendChild(star);
+}
+
+let night = false;
+btnDayNight.addEventListener("click", () => {
+  night = !night;
+  document.body.classList.toggle("night", night);
+  document.body.classList.toggle("day", !night);
+  btnDayNight.textContent = night ? "🌞 Day Mode" : "🌙 Night Mode";
+});

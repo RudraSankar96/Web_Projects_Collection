@@ -270,6 +270,12 @@ body.night .cloud::after {
   overflow: hidden;
   z-index: 1;
   pointer-events: none;
+  display: none;
+}
+
+/* Stars visible only in night */
+body.night .stars {
+  display: block;
 }
 .stars span {
   position: absolute;
