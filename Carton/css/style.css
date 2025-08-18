@@ -243,3 +243,44 @@ body{
   0% { transform: translateX(0); }
   100% { transform: translateX(1600px); }
 }
+/* 🌞 Default Day Sky */
+body.day {
+  background: linear-gradient(180deg, var(--sky), var(--sky2) 60%);
+}
+body.night {
+  background: linear-gradient(180deg, #0a0c1b, #1b2135 70%);
+  color: #f5f5f5;
+}
+
+/* 🌙 Night Clouds */
+body.night .cloud {
+  background: #ddd;
+  opacity: 0.7;
+}
+body.night .cloud::before,
+body.night .cloud::after {
+  background: #ddd;
+}
+
+/* ✨ Stars */
+.stars {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: transparent;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+.stars span {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 3s infinite ease-in-out alternate;
+}
+@keyframes twinkle {
+  0% { opacity: 0.2; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.3); }
+}
