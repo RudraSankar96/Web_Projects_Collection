@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Markdown Previewer</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Marked (Markdown parser) & DOMPurify (XSS safety) -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.7/dist/purify.min.js" defer></script>
+</head>
+<body>
+  <header class="app-header">
+    <h1>Markdown Previewer</h1>
+    <div class="actions">
+      <button id="btn-theme" title="Toggle theme">🌓</button>
+      <button id="btn-clear" title="Clear editor">🧹</button>
+      <button id="btn-download-md" title="Download .md">⬇️ MD</button>
+      <button id="btn-download-html" title="Download .html">⬇️ HTML</button>
+      <label class="file-label" title="Open .md file">
+        📂 <input id="file-input" type="file" accept=".md,.markdown,text/markdown,.txt" hidden />
+      </label>
+    </div>
+  </header>
+
+  <main class="split">
+    <section class="pane">
+      <div class="pane-header">
+        <strong>Editor</strong>
+        <div class="toolbar">
+          <button data-md="**bold**" title="Bold">B</button>
+          <button data-md="*italic*" title="Italic">I</button>
+          <button data-md="`code`" title="Inline code">{ }</button>
+          <button data-md="\n```\ncode block\n```\n" title="Code block">[code]</button>
+          <button data-md="\n- List item" title="List">•</button>
+          <button data-md="\n1. List item" title="Numbered">1.</button>
+          <button data-md="\n> Quote" title="Quote">“”</button>
+          <button data-md="\n![alt](url)" title="Image">🖼️</button>
+          <button data-md="\n[link](https://)" title="Link">🔗</button>
+        </div>
+      </div>
+      <textarea id="editor" spellcheck="false" placeholder="Write Markdown here..."></textarea>
+    </section>
+
+    <section class="pane">
+      <div class="pane-header">
+        <strong>Preview</strong>
+        <small id="status" aria-live="polite"></small>
+      </div>
+      <article id="preview" class="content"></article>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <span>Built with <a href="https://marked.js.org/" target="_blank" rel="noopener">Marked</a> + <a href="https://github.com/cure53/DOMPurify" target="_blank" rel="noopener">DOMPurify</a></span>
+  </footer>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
