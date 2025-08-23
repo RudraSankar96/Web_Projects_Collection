@@ -53,3 +53,35 @@ button, .file-label{
   transition: transform .05s ease, background .2s ease, border-color .2s ease;
   font-weight: 600;
 }
+button:hover, .file-label:hover{ background: rgba(255,255,255,0.04); }
+button:active{ transform: scale(0.98); }
+.file-label{ display:inline-flex; align-items:center; }
+
+.split{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  height: calc(100dvh - 120px);
+  padding: 10px;
+}
+
+.pane{
+  display:flex; flex-direction:column;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.pane-header{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.06), transparent);
+}
+
+.toolbar{ display:flex; gap: 6px; flex-wrap: wrap; }
+.toolbar button{
+  font-size: 12px; padding: 4px 8px; border-radius: 10px;
+}
