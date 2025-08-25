@@ -11,3 +11,25 @@ const MOODS = {
   angry: { label: "Angry", msg: "Channel it. Move. Breathe. You got this. 🔥" },
   tired: { label: "Tired", msg: "Rest is productive. Nap > everything. 😴" }
 };
+
+
+const app = document.getElementById("app");
+const moodTag = document.getElementById("moodTag");
+const moodMsg = document.getElementById("moodMsg");
+const historyEl = document.getElementById("history");
+const clearBtn = document.getElementById("clearBtn");
+const buttons = Array.from(document.querySelectorAll(".emoji"));
+
+let changes = 0;
+
+// Initialize: restore last mood if available
+const lastMood = localStorage.getItem("lastMood");
+if (lastMood && MOODS[lastMood]) {
+  applyMood(lastMood, false);
+}
+
+buttons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const mood = btn.dataset.mood;
+    applyMood(mood, true);
+  })});
