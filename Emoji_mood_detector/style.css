@@ -22,3 +22,55 @@ body{
   border:1px solid rgba(255,255,255,.06);
   border-radius:20px; padding:1.25rem; box-shadow:0 10px 30px rgba(0,0,0,.35);
 }
+.status{ text-align:center; margin-bottom:.75rem }
+.tag{
+  display:inline-block; padding:.35rem .7rem; border-radius:999px; border:1px solid rgba(255,255,255,.12);
+  font-size:.9rem; color:var(--muted); background:rgba(255,255,255,.03)
+}
+.msg{ margin:.5rem auto 0; max-width:48ch; color:var(--text) }
+
+.grid{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(64px,1fr));
+  gap:.9rem; margin-top:1rem;
+}
+.emoji{
+  font-size:2rem; line-height:1; padding:1.1rem 0; border-radius:16px; border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.05); color:var(--text); cursor:pointer;
+  transition:transform .15s ease, background .25s ease, border-color .25s ease, box-shadow .2s ease;
+  box-shadow:0 6px 16px rgba(0,0,0,.2);
+}
+.emoji:hover{ transform:translateY(-2px); background:rgba(255,255,255,.08) }
+.emoji:focus{ outline:none; box-shadow:0 0 0 3px var(--ring) }
+.emoji[aria-pressed="true"]{
+  border-color:rgba(255,255,255,.35); background:rgba(255,255,255,.12); transform:translateY(-1px) scale(1.02);
+}
+
+.tools{
+  margin-top:1rem; display:flex; align-items:center; justify-content:space-between; gap:1rem;
+}
+.ghost{
+  background:transparent; border:1px solid rgba(255,255,255,.14); color:var(--text);
+  padding:.6rem .9rem; border-radius:12px; cursor:pointer; transition:background .2s ease,border-color .2s ease;
+}
+.ghost:hover{ background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.3) }
+.history{ color:var(--muted) }
+
+.footer{ text-align:center; margin-top:1rem; color:var(--muted) }
+
+/* dynamic backgrounds per mood (set by JS using body style) */
+[data-bg="joy"]{ background:linear-gradient(135deg,#ffcc70,#ff7e5f) fixed }
+[data-bg="calm"]{ background:linear-gradient(135deg,#7bdff2,#b2f7ef) fixed }
+[data-bg="love"]{ background:linear-gradient(135deg,#ff9a9e,#fecfef) fixed }
+[data-bg="cool"]{ background:linear-gradient(135deg,#a1c4fd,#c2e9fb) fixed }
+[data-bg="focus"]{ background:linear-gradient(135deg,#cfd9df,#e2ebf0) fixed }
+[data-bg="party"]{ background:linear-gradient(135deg,#f6d365,#fda085) fixed }
+[data-bg="meh"]{ background:linear-gradient(135deg,#606c88,#3f4c6b) fixed }
+[data-bg="sad"]{ background:linear-gradient(135deg,#a1a1aa,#6b7280) fixed }
+[data-bg="angry"]{ background:linear-gradient(135deg,#f85032,#e73827) fixed }
+[data-bg="tired"]{ background:linear-gradient(135deg,#4b6cb7,#182848) fixed }
+
+/* reduce motion preference */
+@media (prefers-reduced-motion: reduce){
+  .emoji{ transition:none }
+  .app{ transition:none }
+}
