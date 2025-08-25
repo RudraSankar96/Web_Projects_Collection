@@ -32,4 +32,68 @@ buttons.forEach(btn => {
   btn.addEventListener("click", () => {
     const mood = btn.dataset.mood;
     applyMood(mood, true);
-  })});
+  });
+
+  // Space/Enter support for accessibility
+  btn.addEventListener("keydown", (e) => {
+    if (e.key === " " || e.key === "Enter") {
+      e.preventDefault();
+      btn.click();
+    }
+  });
+});
+
+clearBtn.addEventListener("click", () => {
+  localStorage.removeItem("lastMood");
+  setPressed(null);
+  app.setAttribute("data-bg", "");
+  moodTag.textContent = "How are you feeling?";
+  moodMsg.textContent = "Pick one below to set your mood.";
+  changes = 0;
+  updateHistory();
+});
+
+function applyMood(mood, countChange = true) {
+  const info = MOODS[mood];
+  if (!info) return;
+
+   // Toggle pressed states
+  setPressed(mood);
+
+  // Update UI
+  app.setAttribute("data-bg", mood);
+  moodTag.textContent = info.label;
+  moodMsg.textContent = info.msg;
+
+  // Persist
+  localStorage.setItem("lastMood", mood);
+
+  if (countChange) {
+    changes++;
+    updateHistory();
+    ripple(mood);
+  }
+}
+
+function setPressed(activeMood) {
+  buttons.forEach(b => b.setAttribute("aria-pressed", String(b.dataset.mood === activeMood)));
+}
+
+function updateHistory() {
+  historyEl.textContent = `${changes} ${changes === 1 ? "change" : "changes"}`;
+}
+
+// Nice little ripple animation on the pressed button
+function ripple(mood) {
+  const btn = buttons.find(b => b.dataset.mood === mood);
+  if (!btn) return;
+
+  btn.animate(
+    [
+      { transform: "translateY(-1px) scale(1.00)" },
+      { transform: "translateY(-3px) scale(1.06)" },
+      { transform: "translateY(-1px) scale(1.02)" }
+    ],
+    { duration: 260, easing: "ease-out" }
+  );
+}
