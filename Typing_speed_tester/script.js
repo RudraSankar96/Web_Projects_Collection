@@ -5,3 +5,17 @@ const quotes = [
   "Stay consistent and success will follow.",
   "Coding is like humor. If you have to explain it, it’s bad."
 ];
+
+const quoteEl = document.getElementById("quote");
+const inputEl = document.getElementById("input");
+const timeEl = document.getElementById("time");
+const wpmEl = document.getElementById("wpm");
+const accEl = document.getElementById("accuracy");
+const mistakesEl = document.getElementById("mistakes");
+const restartBtn = document.getElementById("restart");
+
+let timer = null;
+let time = 0;
+let mistakes = 0;
+let isStarted = false;
+let currentQuote = "";
