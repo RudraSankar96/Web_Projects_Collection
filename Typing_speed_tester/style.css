@@ -23,3 +23,55 @@ header h1{margin:.2rem 0}
 .test-box{
   margin:1rem 0;
 }
+
+.quote{
+  background:#f1f5f9;
+  padding:1rem;
+  border-radius:10px;
+  font-size:1.1rem;
+  line-height:1.6;
+  margin-bottom:1rem;
+  user-select:none;
+}
+
+textarea{
+  width:100%;
+  padding:1rem;
+  border:2px solid #ccc;
+  border-radius:10px;
+  font-size:1rem;
+  resize:none;
+  height:120px;
+  outline:none;
+  transition:border .2s;
+}
+textarea:focus{
+  border-color:#4facfe;
+}
+
+.results{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:.5rem;
+  margin-top:1rem;
+  text-align:center;
+  font-weight:bold;
+}
+
+.actions{
+  text-align:center;
+  margin-top:1.5rem;
+}
+button{
+  background:#4facfe;
+  border:none;
+  padding:.7rem 1.5rem;
+  font-size:1rem;
+  color:white;
+  border-radius:10px;
+  cursor:pointer;
+  transition:background .2s;
+}
+button:hover{
+  background:#00c6ff;
+}
