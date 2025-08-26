@@ -33,3 +33,51 @@ header h1{margin:.2rem 0}
   justify-content:center;
   margin:1.5rem 0;
 }
+
+.card{
+  width:100px;
+  height:100px;
+  perspective:1000px;
+  cursor:pointer;
+}
+.card-inner{
+  position:relative;
+  width:100%;
+  height:100%;
+  transform-style:preserve-3d;
+  transition:transform .5s;
+}
+.card.flipped .card-inner{
+  transform:rotateY(180deg);
+}
+.card-front, .card-back{
+  position:absolute;
+  width:100%;
+  height:100%;
+  backface-visibility:hidden;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2rem;
+}
+.card-front{
+  background:#e2e8f0;
+}
+.card-back{
+  background:#4facfe;
+  color:white;
+  transform:rotateY(180deg);
+}
+.actions button{
+  background:#4facfe;
+  border:none;
+  color:white;
+  padding:.7rem 1.2rem;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:1rem;
+}
+.actions button:hover{
+  background:#00c6ff;
+}
