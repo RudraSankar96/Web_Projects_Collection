@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flashcards Quiz App 🎴</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="container">
+    <h1>Flashcards Quiz App 🎴</h1>
+    <p class="subtitle">Click a card to flip • Your cards are saved in your browser</p>
+  </header>
+
+  <main class="container">
+    <!-- Controls -->
+    <section class="toolbar">
+      <button id="btnShuffle" class="btn">Shuffle</button>
+      <button id="btnClear" class="btn btn-danger">Clear All</button>
+      <button id="btnExport" class="btn">Export JSON</button>
+      <label class="btn file-btn">
+        Import JSON
+        <input type="file" id="fileImport" accept="application/json" hidden>
+      </label>
+      <div class="search-wrap">
+        <input type="text" id="searchInput" placeholder="Search question/answer..."/>
+      </div>
+    </section>
+
+    <!-- Add Form -->
+    <section class="card-form">
+      <h2>Add a New Flashcard</h2>
+      <div class="form-row">
+        <input type="text" id="questionInput" placeholder="Question (front)" />
+        <input type="text" id="answerInput" placeholder="Answer (back)" />
+      </div>
+      <div class="form-row">
+        <button id="btnAdd" class="btn btn-primary">Add Card</button>
+      </div>
+      <p class="hint">Tip: Press <kbd>Enter</kbd> inside the answer field to add quickly.</p>
+    </section>
+
+    <!-- Grid -->
+    <section id="grid" class="grid"></section>
+
+    <!-- Empty State -->
+    <template id="emptyTemplate">
+      <div class="empty">
+        <p>No cards yet. Add your first flashcard above ✨</p>
+      </div>
+    </template>
+
+    <!-- Card Template -->
+    <template id="cardTemplate">
+      <article class="card" tabindex="0" aria-label="Flashcard">
+        <div class="card-inner">
+          <div class="card-face card-front"></div>
+          <div class="card-face card-back"></div>
+        </div>
+        <div class="card-actions">
+          <button class="icon-btn edit" title="Edit">✏️</button>
+          <button class="icon-btn delete" title="Delete">🗑️</button>
+        </div>
+      </article>
+    </template>
+  </main>
+
+  <footer class="container footer">
+    <small>Built by Rudra · Stored locally · No backend required</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
