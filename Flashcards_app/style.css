@@ -1,0 +1,24 @@
+:root{
+  --bg:#0f1220;
+  --card:#161a2b;
+  --card2:#101425;
+  --text:#e9ecf1;
+  --muted:#9aa3b2;
+  --primary:#6c9eff;
+  --accent:#7cf3c6;
+  --danger:#ff6b6b;
+  --radius:16px;
+  --shadow:0 10px 25px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial;
+  color:var(--text);
+  background:
+    radial-gradient(1200px 800px at -10% -10%, #1b2140 0%, rgba(0,0,0,0) 60%),
+    radial-gradient(1000px 700px at 110% 0%, #132042 0%, rgba(0,0,0,0) 60%),
+    var(--bg);
+}
