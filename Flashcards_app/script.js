@@ -25,3 +25,16 @@ function getStarterCards() {
 // ====== State ======
 let cards = loadCards();
 let filtered = [...cards];
+
+// ====== Elements ======
+const grid = document.getElementById("grid");
+const questionInput = document.getElementById("questionInput");
+const answerInput = document.getElementById("answerInput");
+const btnAdd = document.getElementById("btnAdd");
+const btnShuffle = document.getElementById("btnShuffle");
+const btnClear = document.getElementById("btnClear");
+const btnExport = document.getElementById("btnExport");
+const fileImport = document.getElementById("fileImport");
+const searchInput = document.getElementById("searchInput");
+const cardTemplate = document.getElementById("cardTemplate");
+const emptyTemplate = document.getElementById("emptyTemplate");
